@@ -1,0 +1,77 @@
+# Authentication
+
+```shell
+curl --location --request POST '/v1/auth/verify' \
+--header 'Authorization: aldijfalskdjfa' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "token": "jaosdijfasodfj"
+}'
+```
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("/v1/auth/verify")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = "aldijfalskdjfa"
+request["Content-Type"] = "application/json"
+request.body = JSON.dump({
+  "token": "jaosdijfasodfj"
+})
+
+response = http.request(request)
+puts response.read_body
+```
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "token": "jaosdijfasodfj"
+});
+
+var config = {
+  method: 'post',
+  url: '/v1/auth/verify',
+  headers: {
+    'Authorization': 'aldijfalskdjfa',
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message" : "success"
+}
+```
+
+Kangaroo uses API keys to allow access to the API.
+
+Kangaroo expects for the API key to be included in all API requests to the server in a header that looks like the following:
+
+|Category|Value|
+|-------|-------|
+|Http request| `POST`|
+|URL|/auth/verify|
+
+`Authorization: asdfghjkl...`
+
+<aside class="notice">
+You must replace <code>asdfghjkl...</code> with your personal API key.
+</aside>
+
