@@ -10,23 +10,22 @@ jobs:
       contents: write
 
     runs-on: ubuntu-latest
-    env:
-      ruby-version: 3.1
 
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ env.ruby-version }}
+        ruby-version: '3.1'
 
-    - uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: gems-${{ runner.os }}-${{ env.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          gems-${{ runner.os }}-${{ env.ruby-version }}-
-          gems-${{ runner.os }}-
+    - name: Ruby gem cache
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
     - run: bundle config set deployment 'true'
     - name: bundle install
       run: |
