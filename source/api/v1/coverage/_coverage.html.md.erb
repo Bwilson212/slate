@@ -1,0 +1,61 @@
+# Coverage
+
+```shell
+curl --location --request GET '/v1/coverage?state=GA&zip=32345&country=US' \
+--header 'Authorization: asdfghjkl...' \
+--data-raw ''
+```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("/v1/coverage?state=GA&zip=32345&country=US")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "asdfghjkl..."
+
+response = http.request(request)
+puts response.read_body
+```
+
+```javascript
+var axios = require('axios');
+var data = '';
+
+var config = {
+  method: 'get',
+  url: '/v1/coverage?state=GA&zip=32345&country=US',
+  headers: {
+    'Authorization': 'asdfghjkl...'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message" : true
+}
+```
+
+<div class="h3"> Request Information</div>
+
+|Category|Value|
+|-------|-------|
+|Http request| `GET`|
+|URL|/v1/quote?state=state&zip=zip&country=country|
+
+<div class="h3"> Headers</div>
+
+Authorization: asdfghjkl...
