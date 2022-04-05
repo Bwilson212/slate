@@ -1,0 +1,194 @@
+# Get Quote
+This is the api documentation generate and retrieve quote.
+
+## Generate a quote
+```shell
+curl --location --request POST '/v1/quote' \
+--header 'Authorization: asdfghjkl...' \
+--data-raw '{
+    "id": "xErFgC1648745126",
+    "createdAt": "2020-07-10 15:00:00.000",
+    "updatedAt": "2020-07-10 17:00:00.000",
+    "status": "pending",
+    "insurerId": "BJDEWQ",
+    "partnerId": "2057",
+    "userId": "wd4kZcAw1648147055",
+    "discount": 150.00,
+    "offerUrl": "insure.heykangaroo/com/offer/xErFgC1648745126",
+    "price": 1900,
+    "type": 0,
+    "period": 52,
+    "validFor": 60,
+    "elements": {
+        "rqUid": "agfwre2r23",
+        "dmpId": "fjkd93-d3",
+        "dmpHqxId": "b30-djfj3D"
+    }
+}'
+```
+
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("/v1/quote")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = "asdfghjkl..."
+request.body = JSON.dump({
+  "id": "xErFgC1648745126",
+  "createdAt": "2020-07-10 15:00:00.000",
+  "updatedAt": "2020-07-10 17:00:00.000",
+  "status": "pending",
+  "insurerId": "BJDEWQ",
+  "partnerId": "2057",
+  "userId": "wd4kZcAw1648147055",
+  "discount": 150,
+  "offerUrl": "insure.heykangaroo/com/offer/xErFgC1648745126",
+  "price": 1900,
+  "type": 0,
+  "period": 52,
+  "validFor": 60,
+  "elements": {
+    "rqUid": "agfwre2r23",
+    "dmpId": "fjkd93-d3",
+    "dmpHqxId": "b30-djfj3D"
+  }
+})
+
+response = http.request(request)
+puts response.read_body
+```
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "id": "xErFgC1648745126",
+  "createdAt": "2020-07-10 15:00:00.000",
+  "updatedAt": "2020-07-10 17:00:00.000",
+  "status": "pending",
+  "insurerId": "BJDEWQ",
+  "partnerId": "2057",
+  "userId": "wd4kZcAw1648147055",
+  "discount": 150,
+  "offerUrl": "insure.heykangaroo/com/offer/xErFgC1648745126",
+  "price": 1900,
+  "type": 0,
+  "period": 52,
+  "validFor": 60,
+  "elements": {
+    "rqUid": "agfwre2r23",
+    "dmpId": "fjkd93-d3",
+    "dmpHqxId": "b30-djfj3D"
+  }
+});
+
+var config = {
+  method: 'post',
+  url: '/v1/quote',
+  headers: {
+    'Authorization': 'asdfghjkl...'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "quoteId": "xErFgC1648745126",
+    "userId": "wd4kZcAw1648147055",
+    "status": "pending",
+    "createdAt": "2020-07-10 15:00:00.000"
+}
+```
+
+### Request Information
+|Category|Value|
+|-------|-------|
+|Http request| `POST`|
+|URL|/v1/quote|
+
+### Headers
+Authorization: asdfghjkl...
+
+## Retrieve a quote
+```shell
+curl --location --request GET '/v1/quote/xErFgC1648745126' \
+--header 'Authorization: asdfghjkl...' \
+--data-raw ''
+```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("/v1/quote/xErFgC1648745126")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "asdfghjkl..."
+
+response = http.request(request)
+puts response.read_body
+```
+```javascript
+var axios = require('axios');
+var data = '';
+
+var config = {
+  method: 'get',
+  url: '/v1/quote/xErFgC1648745126',
+  headers: {
+    'Authorization': 'asdfghjkl...'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "xErFgC1648745126",
+    "createdAt": "2020-07-10 15:00:00.000Z",
+    "updatedAt": "2020-07-10 17:00:00.000",
+    "userId": "wd4kZcAw1648147055",
+    "insurerName": "branch",
+    "discount": 150.00,
+    "offerUrl": "insure.heykangaroo/com/offer/xErFgC1648745126",
+    "price": 1900,
+    "status": "success",
+    "type": 0,
+    "period": 52,
+    "validFor": 60,
+}
+```
+
+### Request Information
+|Category|Value|
+|-------|-------|
+|Http request| `GET`|
+|URL|/v1/quote/:quoteId|
+
+### Headers
+Authorization: asdfghjkl...

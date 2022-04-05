@@ -2,59 +2,39 @@ name: Dev Deploy
 
 on:
   push:
-    branches: [ 'dev' ]
+    branches: ['dev']
 
 jobs:
-  push_to_registry:
+  build:
+    name: Build website
     runs-on: ubuntu-latest
-
     steps:
-    - name: Check out the repo
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Push to Docker Hub
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_ACCESS_KEY }}
-        repository: slatedocs/slate
-        tag_with_ref: true
-  
-  deploy_gh:
-    permissions:
-      contents: write
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
 
-    runs-on: ubuntu-latest
-    env:
-      ruby-version: 2.5
+      - name: Ruby gem cache
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Install Gems
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ env.ruby-version }}
+      - name: Build Middleman
+        run: bundle exec middleman build --verbose
 
-    - uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: gems-${{ runner.os }}-${{ env.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          gems-${{ runner.os }}-${{ env.ruby-version }}-
-          gems-${{ runner.os }}-
-
-    - run: bundle config set deployment 'true'
-    - name: bundle install
-      run: |
-        bundle config path vendor/bundle
-        bundle install --jobs 4 --retry 3
-
-    - run: bundle exec middleman build
-
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3.7.0-8
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        destination_dir: dev
-        publish_dir: ./build
-        keep_files: true
+      - name: Deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          destination_dir: dev
+          publish_dir: ./build
