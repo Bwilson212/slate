@@ -282,8 +282,8 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-7cbd66a6.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-b8fbd69b.css" rel="stylesheet" media="print" />
+    <link href="stylesheets/screen-f3901d1b.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-dae01d57.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-b12a2749.js"></script>
 
     <script>
@@ -315,18 +315,20 @@
           </li>
           <li>
             <a href="#coverage" class="toc-h1 toc-link" data-title="Coverage">Coverage</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#check-customer-coverage" class="toc-h2 toc-link" data-title="Check Customer Coverage">Check Customer Coverage</a>
+                  </li>
+              </ul>
           </li>
           <li>
-            <a href="#get-user-information" class="toc-h1 toc-link" data-title="Get User Information">Get User Information</a>
+            <a href="#user-information" class="toc-h1 toc-link" data-title="User Information">User Information</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#create-an-user" class="toc-h2 toc-link" data-title="Create an user">Create an user</a>
                   </li>
                   <li>
-                    <a href="#retrieve-a-user" class="toc-h2 toc-link" data-title="Retrieve a user">Retrieve a user</a>
-                  </li>
-                  <li>
-                    <a href="#retrieve-a-quote" class="toc-h2 toc-link" data-title="Retrieve a quote">Retrieve a quote</a>
+                    <a href="#get-user-information" class="toc-h2 toc-link" data-title="Get User Information">Get User Information</a>
                   </li>
                   <li>
                     <a href="#update-a-user" class="toc-h2 toc-link" data-title="Update a user">Update a user</a>
@@ -430,33 +432,37 @@
 You must replace <code>asdfghjkl...</code> with your personal API key.
 </aside>
 
-<h1 id='coverage'>Coverage</h1><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'/v1/coverage?state=GA&amp;zip=32345&amp;country=US'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: asdfghjkl...'</span> <span class="se">\</span>
-<span class="nt">--data-raw</span> <span class="s1">''</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
-<span class="nb">require</span> <span class="s2">"net/http"</span>
+<h1 id='coverage'>Coverage</h1>
 
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"/v1/coverage?state=GA&amp;zip=32345&amp;country=US"</span><span class="p">)</span>
+<p>This is the api documentation to check if user has coverage. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.</p>
 
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<p><h2 id='check-customer-coverage'>Check Customer Coverage</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">&#39;/v1/coverage?state=GA&amp;zip=32345&amp;country=US&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--data-raw</span> <span class="s1">&#39;&#39;</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
+
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;/v1/coverage?state=GA&amp;zip=32345&amp;country=US&quot;</span><span class="p">)</span></p>
+
+<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"asdfghjkl..."</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span></p>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">&#39;</span><span class="s1">axios</span><span class="dl">&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="dl">&#39;&#39;</span><span class="p">;</span></p>
 
-<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/v1/coverage?state=GA&amp;zip=32345&amp;country=US</span><span class="dl">'</span><span class="p">,</span>
+<p><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">get</span><span class="dl">&#39;</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/coverage?state=GA&amp;zip=32345&amp;country=US</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">asdfghjkl...</span><span class="dl">'</span>
+    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">asdfghjkl...</span><span class="dl">&#39;</span>
   <span class="p">},</span>
   <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
-<span class="p">};</span>
+<span class="p">};</span></p>
 
-<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<p><span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
 <span class="p">})</span>
@@ -466,12 +472,13 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
-</blockquote>
+
+<p></blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="nl">&quot;message&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<div class="h3"> Request Information</div>
+<div class="h3"> Request Information</div></p></p>
 
 <table><thead>
 <tr>
@@ -493,52 +500,91 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 
 <p>Authorization: asdfghjkl...</p>
 
-<h1 id='get-user-information'>Get User Information</h1>
+<div class="h3"> Output Schema of Request</div>
 
-<p>This is the api documentation for the user information.</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>State</td>
+<td>State User is from</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Zip</td>
+<td>Zipcode of the user</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Country</td>
+<td>Country of the user</td>
+<td><code>true</code></td>
+</tr>
+</tbody></table>
 
-<p><h2 id='create-an-user'>Create an user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">&#39;/v1/progressive/start&#39;</span> <span class="se">&lt;/span&gt;
+<h1 id='user-information'>User Information</h1>
+
+<p>This is the api documentation for the user information. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.</p>
+
+<p><h2 id='create-an-user'>Create an user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">&#39;/v1/user&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--header</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--data-raw</span> <span class="s1">&#39;{
-    &quot;firstName&quot;: &quot;Joe&quot;,
-    &quot;lastName&quot;: &quot;Emison&quot;,
-    &quot;city&quot;: &quot;Brooklyn&quot;,
-    &quot;state&quot;: &quot;NY&quot;,
-    &quot;zip&quot;: &quot;12344-56767&quot;,
-    &quot;address1&quot;: &quot;1920 Edgemont Rd&quot;,
-    &quot;dateOfBirth&quot;: &quot;02/13/1990&quot;,
-    &quot;email&quot;: &quot;test@heykangaroo.com&quot;,
-    &quot;phone&quot;: &quot;+1-202-460-3525&quot;,
-    &quot;isPremiumSubscriber&quot;: true,
-    &quot;connectedHome&quot;: {
+    &quot;firstName&quot;: &quot;Kanga&quot;,
+    &quot;lastName&quot;: &quot;Roo&quot;,
+    &quot;address&quot;: {
+        &quot;city&quot;: &quot;Columbus&quot;,
+        &quot;state&quot;: &quot;OH&quot;,
+        &quot;country&quot;: &quot;US&quot;,
+        &quot;zip&quot;: &quot;43212&quot;,
+        &quot;address1&quot;: &quot;1920 Edgemont Rd&quot;,
+        &quot;address2&quot;: &quot;Apt 302&quot;
+    },
+    &quot;email&quot;: &quot;joey@heykangaroo.com&quot;,
+    &quot;phone&quot;: &quot;+15555559992&quot;,
+    &quot;dateOfBirth&quot;: &quot;MM/DD/YYYY&quot;,
+    &quot;typeOfHome&quot;: &quot;house&quot;,
+    &quot;isHomeOwner&quot;: true,
+    &quot;proMonitoringEnabled&quot; : true,
+    &quot;devices&quot;: {
         &quot;moisture&quot;: &quot;1&quot;,
         &quot;theft&quot;: &quot;6&quot;,
         &quot;smoke&quot;: &quot;2&quot;,
         &quot;motion&quot;: &quot;1&quot;,
-        &quot;waterShutoff&quot;: &quot;0&quot;
+        &quot;waterShutoff&quot;: &quot;0&quot;,
     }
 }&#39;</span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
 <span class="nb">require</span> <span class="s2">&quot;json&quot;</span>
 <span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
 
-<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;/v1/progressive/start&quot;</span><span class="p">)</span></p>
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;/v1/user&quot;</span><span class="p">)</span></p>
 
 <p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
-  <span class="s2">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;Joe&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Emison&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Brooklyn&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NY&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;12344-56767&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;address1&quot;</span><span class="p">:</span> <span class="s2">&quot;1920 Edgemont Rd&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;dateOfBirth&quot;</span><span class="p">:</span> <span class="s2">&quot;02/13/1990&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;test@heykangaroo.com&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;+1-202-460-3525&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;isPremiumSubscriber&quot;</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
-  <span class="s2">&quot;connectedHome&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;Kanga&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Roo&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbus&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;OH&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;US&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;43212&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address1&quot;</span><span class="p">:</span> <span class="s2">&quot;1920 Edgemont Rd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address2&quot;</span><span class="p">:</span> <span class="s2">&quot;Apt 302&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;joey@heykangaroo.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;+15555559992&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;dateOfBirth&quot;</span><span class="p">:</span> <span class="s2">&quot;MM/DD/YYYY&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;typeOfHome&quot;</span><span class="p">:</span> <span class="s2">&quot;house&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;isHomeOwner&quot;</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+  <span class="s2">&quot;proMonitoringEnabled&quot;</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+  <span class="s2">&quot;devices&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;moisture&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;theft&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
     <span class="s2">&quot;smoke&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
@@ -552,17 +598,23 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 
 <p></code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">&#39;</span><span class="s1">axios</span><span class="dl">&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-  <span class="dl">&quot;</span><span class="s2">firstName</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">Joe</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">lastName</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">Emison</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">city</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">Brooklyn</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">state</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">NY</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">zip</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">12344-56767</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">address1</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">1920 Edgemont Rd</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">dateOfBirth</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">02/13/1990</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">email</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">test@heykangaroo.com</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">phone</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">+1-202-460-3525</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">isPremiumSubscriber</span><span class="dl">&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">connectedHome</span><span class="dl">&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="dl">&quot;</span><span class="s2">firstName</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">Kanga</span><span class="dl">&quot;</span><span class="p">,</span>
+  <span class="dl">&quot;</span><span class="s2">lastName</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">Roo</span><span class="dl">&quot;</span><span class="p">,</span>
+  <span class="dl">&quot;</span><span class="s2">address</span><span class="dl">&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">&quot;</span><span class="s2">city</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">Columbus</span><span class="dl">&quot;</span><span class="p">,</span>
+    <span class="dl">&quot;</span><span class="s2">state</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">OH</span><span class="dl">&quot;</span><span class="p">,</span>
+    <span class="dl">&quot;</span><span class="s2">country</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">US</span><span class="dl">&quot;</span><span class="p">,</span>
+    <span class="dl">&quot;</span><span class="s2">zip</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">43212</span><span class="dl">&quot;</span><span class="p">,</span>
+    <span class="dl">&quot;</span><span class="s2">address1</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">1920 Edgemont Rd</span><span class="dl">&quot;</span><span class="p">,</span>
+    <span class="dl">&quot;</span><span class="s2">address2</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">Apt 302</span><span class="dl">&quot;</span>
+  <span class="p">},</span>
+  <span class="dl">&quot;</span><span class="s2">email</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">joey@heykangaroo.com</span><span class="dl">&quot;</span><span class="p">,</span>
+  <span class="dl">&quot;</span><span class="s2">phone</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">+15555559992</span><span class="dl">&quot;</span><span class="p">,</span>
+  <span class="dl">&quot;</span><span class="s2">dateOfBirth</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">MM/DD/YYYY</span><span class="dl">&quot;</span><span class="p">,</span>
+  <span class="dl">&quot;</span><span class="s2">typeOfHome</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">house</span><span class="dl">&quot;</span><span class="p">,</span>
+  <span class="dl">&quot;</span><span class="s2">isHomeOwner</span><span class="dl">&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">&quot;</span><span class="s2">proMonitoringEnabled</span><span class="dl">&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">&quot;</span><span class="s2">devices</span><span class="dl">&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">&quot;</span><span class="s2">moisture</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">1</span><span class="dl">&quot;</span><span class="p">,</span>
     <span class="dl">&quot;</span><span class="s2">theft</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">6</span><span class="dl">&quot;</span><span class="p">,</span>
     <span class="dl">&quot;</span><span class="s2">smoke</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">2</span><span class="dl">&quot;</span><span class="p">,</span>
@@ -573,9 +625,10 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 
 <p><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">post</span><span class="dl">&#39;</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/progressive/start</span><span class="dl">&#39;</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/user</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">asdfghjkl...</span><span class="dl">&#39;</span><span class="p">,</span>
+    <span class="dl">&#39;</span><span class="s1">Content-Type</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">application/json</span><span class="dl">&#39;</span>
   <span class="p">},</span>
   <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
 <span class="p">};</span></p>
@@ -594,7 +647,33 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 
 <p></blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">&quot;message&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="w">
+    </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wd4kZcAw1648147055&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-10 15:00:00.000&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;updatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-10 15:00:00.000&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;partnerId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6042&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;firstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kanga&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;lastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Roo&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Columbus&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OH&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;US&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;43212&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;address1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1920 Edgemont Rd&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;address2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Apt 302&quot;</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;joey@heykangaroo.com&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+15555559992&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MM/DD/YYYY&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;typeOfHome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;house&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;isHomeOwner&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;proMonitoringEnabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">&quot;moisture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;theft&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;smoke&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;motion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;waterShutoff&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-information'>Request Information</h3>
 <table><thead>
@@ -614,25 +693,138 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tbody></table>
 <h3 id='headers'>Headers</h3>
 <p>Authorization: asdfghjkl...</p>
-<h2 id='retrieve-a-user'>Retrieve a user</h2><h2 id='retrieve-a-quote'>Retrieve a quote</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">&#39;/v1/users/wd4kZcAw1648147055&#39;</span> <span class="se">&lt;/span&gt;
+<h3 id='output-schema-of-request'>Output Schema of Request</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstName</td>
+<td>User&#39;s First Name</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>User&#39;s Last Name</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>address</td>
+<td>Object of User&#39;s Address</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>address.address1</td>
+<td>Street Address</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>address.address2</td>
+<td>Apartment Number</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>address.city</td>
+<td>City</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>address.state</td>
+<td>State</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>address.country</td>
+<td>Country</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>address.zip</td>
+<td>Zipcode</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>email</td>
+<td>User&#39;s Email Address</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>User&#39;s Phone Number</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>dateOfBirth</td>
+<td>Birthday</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>typeOfHome</td>
+<td>Type of Home &quot;<code>Rent/Home</code>&quot;</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>isHomeOwner</td>
+<td>Boolean</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>proMonitoringEnabled</td>
+<td>Does User have Subscription</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>devices</td>
+<td>Object of Devices</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>devices.moisture</td>
+<td># of Moisture Devices</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>devices.theft</td>
+<td># of Theft Devices</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>devices.smoke</td>
+<td># of Smoke Devices</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>devices.motion</td>
+<td># of Motion Devices</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>devices.waterShutoff</td>
+<td># of Water Shutoff Devices</td>
+<td><code>true</code></td>
+</tr>
+</tbody></table>
+<h2 id='get-user-information'>Get User Information</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">&#39;/v1/user/wd4kZcAw1648147055&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
 <span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p></p>
 
-<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;/v1/users/wd4kZcAw1648147055&quot;</span><span class="p">)</span></p>
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;/v1/user/wd4kZcAw1648147055&quot;</span><span class="p">)</span></p>
 
 <p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span></p>
 
 <p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span></p>
-
-<p></code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">&#39;</span><span class="s1">axios</span><span class="dl">&#39;</span><span class="p">);</span></p>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">&#39;</span><span class="s1">axios</span><span class="dl">&#39;</span><span class="p">);</span></p>
 
 <p><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">get</span><span class="dl">&#39;</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/users/wd4kZcAw1648147055</span><span class="dl">&#39;</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/user/wd4kZcAw1648147055</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">asdfghjkl...</span><span class="dl">&#39;</span>
   <span class="p">}</span>
@@ -644,8 +836,9 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 <span class="p">})</span>
 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></p>
+
+<p></code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 
@@ -654,7 +847,7 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
     </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wd4kZcAw1648147055&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-10 15:00:00.000&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nl">&quot;updatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-10 15:00:00.000&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;partnerId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2057&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;partnerId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6042&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nl">&quot;firstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kanga&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nl">&quot;lastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Roo&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nl">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -667,7 +860,17 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;joey@heykangaroo.com&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nl">&quot;phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+15555559992&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MM/DD/YYYY&quot;</span><span class="w">
+    </span><span class="nl">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MM/DD/YYYY&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;typeOfHome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;house&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;isHomeOwner&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;proMonitoringEnabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">&quot;moisture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;theft&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;smoke&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;motion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;waterShutoff&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-information-2'>Request Information</h3>
 <table><thead>
@@ -687,7 +890,77 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tbody></table>
 <h3 id='headers-2'>Headers</h3>
 <p>Authorization: asdfghjkl...</p>
-<h2 id='update-a-user'>Update a user</h2><h3 id='request-information-3'>Request Information</h3>
+<h2 id='update-a-user'>Update a user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PATCH <span class="s1">&#39;/v1/user/wd4kZcAw1648147055&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--header</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--data-raw</span> <span class="s1">&#39;{
+    &quot;address&quot;: {
+        &quot;city&quot;: &quot;New York&quot;,
+        &quot;state&quot;: &quot;NY&quot;,
+        &quot;country&quot;: &quot;US&quot;,
+        &quot;zip&quot;: &quot;10011&quot;,
+        &quot;address1&quot;: &quot;6 W 18th Street&quot;,
+        &quot;address2&quot;: &quot;8th Floor&quot;
+    }
+}&#39;</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;json&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p></p>
+
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;/v1/user/wd4kZcAw1648147055&quot;</span><span class="p">)</span></p>
+
+<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Patch</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
+  <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;New York&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NY&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;US&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;10011&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address1&quot;</span><span class="p">:</span> <span class="s2">&quot;6 W 18th Street&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address2&quot;</span><span class="p">:</span> <span class="s2">&quot;8th Floor&quot;</span>
+  <span class="p">}</span>
+<span class="p">})</span></p>
+
+<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">&#39;</span><span class="s1">axios</span><span class="dl">&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+  <span class="dl">&quot;</span><span class="s2">address</span><span class="dl">&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">&quot;</span><span class="s2">city</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">New York</span><span class="dl">&quot;</span><span class="p">,</span>
+    <span class="dl">&quot;</span><span class="s2">state</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">NY</span><span class="dl">&quot;</span><span class="p">,</span>
+    <span class="dl">&quot;</span><span class="s2">country</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">US</span><span class="dl">&quot;</span><span class="p">,</span>
+    <span class="dl">&quot;</span><span class="s2">zip</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">10011</span><span class="dl">&quot;</span><span class="p">,</span>
+    <span class="dl">&quot;</span><span class="s2">address1</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">6 W 18th Street</span><span class="dl">&quot;</span><span class="p">,</span>
+    <span class="dl">&quot;</span><span class="s2">address2</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">8th Floor</span><span class="dl">&quot;</span>
+  <span class="p">}</span>
+<span class="p">});</span></p>
+
+<p><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">patch</span><span class="dl">&#39;</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/user/wd4kZcAw1648147055</span><span class="dl">&#39;</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">asdfghjkl...</span><span class="dl">&#39;</span><span class="p">,</span>
+    <span class="dl">&#39;</span><span class="s1">Content-Type</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">application/json</span><span class="dl">&#39;</span>
+  <span class="p">},</span>
+  <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
+<span class="p">};</span></p>
+
+<p><span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns <code>200</code></p>
+
+<p></blockquote>
+<h3 id='request-information-3'>Request Information</h3>
 <table><thead>
 <tr>
 <th>Category</th>
@@ -708,29 +981,14 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 
 <h1 id='get-quote'>Get Quote</h1>
 
-<p>This is the api documentation generate and retrieve quote.</p>
+<p>This is the api documentation generate and retrieve quote. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.</p>
 
 <p><h2 id='generate-a-quote'>Generate a quote</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">&#39;/v1/quote&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--header</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--data-raw</span> <span class="s1">&#39;{
-    &quot;id&quot;: &quot;xErFgC1648745126&quot;,
-    &quot;createdAt&quot;: &quot;2020-07-10 15:00:00.000&quot;,
-    &quot;updatedAt&quot;: &quot;2020-07-10 17:00:00.000&quot;,
-    &quot;status&quot;: &quot;pending&quot;,
-    &quot;insurerId&quot;: &quot;BJDEWQ&quot;,
-    &quot;partnerId&quot;: &quot;2057&quot;,
     &quot;userId&quot;: &quot;wd4kZcAw1648147055&quot;,
-    &quot;discount&quot;: 150.00,
-    &quot;offerUrl&quot;: &quot;insure.heykangaroo/com/offer/xErFgC1648745126&quot;,
-    &quot;price&quot;: 1900,
-    &quot;type&quot;: 0,
-    &quot;period&quot;: 52,
-    &quot;validFor&quot;: 60,
-    &quot;elements&quot;: {
-        &quot;rqUid&quot;: &quot;agfwre2r23&quot;,
-        &quot;dmpId&quot;: &quot;fjkd93-d3&quot;,
-        &quot;dmpHqxId&quot;: &quot;b30-djfj3D&quot;
-    }
+    &quot;type&quot;: 0
 }&#39;</span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
 <span class="nb">require</span> <span class="s2">&quot;json&quot;</span>
@@ -741,49 +999,18 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 <p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
-  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;xErFgC1648745126&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;createdAt&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-07-10 15:00:00.000&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;updatedAt&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-07-10 17:00:00.000&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;pending&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;insurerId&quot;</span><span class="p">:</span> <span class="s2">&quot;BJDEWQ&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;partnerId&quot;</span><span class="p">:</span> <span class="s2">&quot;2057&quot;</span><span class="p">,</span>
   <span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="s2">&quot;wd4kZcAw1648147055&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;discount&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
-  <span class="s2">&quot;offerUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;insure.heykangaroo/com/offer/xErFgC1648745126&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">1900</span><span class="p">,</span>
-  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">&quot;period&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span>
-  <span class="s2">&quot;validFor&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
-  <span class="s2">&quot;elements&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;rqUid&quot;</span><span class="p">:</span> <span class="s2">&quot;agfwre2r23&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;dmpId&quot;</span><span class="p">:</span> <span class="s2">&quot;fjkd93-d3&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;dmpHqxId&quot;</span><span class="p">:</span> <span class="s2">&quot;b30-djfj3D&quot;</span>
-  <span class="p">}</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">0</span>
 <span class="p">})</span></p>
 
 <p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">&#39;</span><span class="s1">axios</span><span class="dl">&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-  <span class="dl">&quot;</span><span class="s2">id</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">xErFgC1648745126</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">createdAt</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">2020-07-10 15:00:00.000</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">updatedAt</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">2020-07-10 17:00:00.000</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">status</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">pending</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">insurerId</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">BJDEWQ</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">partnerId</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">2057</span><span class="dl">&quot;</span><span class="p">,</span>
   <span class="dl">&quot;</span><span class="s2">userId</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">wd4kZcAw1648147055</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">discount</span><span class="dl">&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">offerUrl</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">insure.heykangaroo/com/offer/xErFgC1648745126</span><span class="dl">&quot;</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">price</span><span class="dl">&quot;</span><span class="p">:</span> <span class="mi">1900</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">type</span><span class="dl">&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">period</span><span class="dl">&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">validFor</span><span class="dl">&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
-  <span class="dl">&quot;</span><span class="s2">elements</span><span class="dl">&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">&quot;</span><span class="s2">rqUid</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">agfwre2r23</span><span class="dl">&quot;</span><span class="p">,</span>
-    <span class="dl">&quot;</span><span class="s2">dmpId</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">fjkd93-d3</span><span class="dl">&quot;</span><span class="p">,</span>
-    <span class="dl">&quot;</span><span class="s2">dmpHqxId</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">b30-djfj3D</span><span class="dl">&quot;</span>
-  <span class="p">}</span>
+  <span class="dl">&quot;</span><span class="s2">type</span><span class="dl">&quot;</span><span class="p">:</span> <span class="mi">0</span>
 <span class="p">});</span></p>
 
 <p><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
@@ -831,6 +1058,25 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tbody></table>
 <h3 id='headers'>Headers</h3>
 <p>Authorization: asdfghjkl...</p>
+<h3 id='output-schema-of-request'>Output Schema of Request</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>ID of the User</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>type</td>
+<td>Type of the User</td>
+<td><code>true</code></td>
+</tr>
+</tbody></table>
 <h2 id='retrieve-a-quote'>Retrieve a quote</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">&#39;/v1/quote/xErFgC1648745126&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--data-raw</span> <span class="s1">&#39;&#39;</span>
@@ -900,9 +1146,23 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tr>
 </tbody></table>
 <h3 id='headers-2'>Headers</h3>
-<p>Authorization: asdfghjkl...</p></p></p>
+<p>Authorization: asdfghjkl...</p>
+<h3 id='output-schema-of-request-2'>Output Schema of Request</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>quoteId</td>
+<td>Quote id Generated</td>
+<td><code>true</code></td>
+</tr>
+</tbody></table></p></p>
 <h1 id='errors'>Errors</h1>
-<p>The Kittn API uses the following error codes:</p>
+<p>The Kangaroo API uses the following error codes:</p>
 
 <table><thead>
 <tr>
