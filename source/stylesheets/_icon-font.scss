@@ -1,19 +1,13 @@
 @font-face {
-	font-family: 'Sofia Pro';
-	font-style: normal;
-	font-weight: normal;
-	src: url('../fonts/Sofia-Pro-Regular.otf') format('opentype');
-}
-
-@font-face {
-	font-family: 'Sofia Pro';
-	font-style: normal;
-	font-weight: bold;
-	src: url('../fonts/Sofia-Pro-Bold.otf') format('opentype');
+  font-family: 'slate';
+  src:font-url('slate.ttf?-syv14m') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 %icon {
-  font-family: 'Sofia Pro';
+  font-family: 'slate';
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;

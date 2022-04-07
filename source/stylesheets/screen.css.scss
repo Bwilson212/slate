@@ -149,6 +149,7 @@ html, body {
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 200ms;
+    font-size: 15px;
   }
 
   // This is the currently selected ToC entry
@@ -398,6 +399,10 @@ html, body {
   table {
     margin-bottom: 1em;
     overflow: auto;
+    width: 100%;
+    max-width: 762px;
+    display: table;
+    margin-left: 28px;
     th,td {
       text-align: left;
       vertical-align: top;

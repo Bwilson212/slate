@@ -1,6 +1,6 @@
 # Errors
 
-The Kittn API uses the following error codes:
+The Kangaroo API uses the following error codes:
 
 
 Error Code | Meaning
