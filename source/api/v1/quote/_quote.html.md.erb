@@ -1,29 +1,14 @@
 # Get Quote
-This is the api documentation generate and retrieve quote.
+This is the api documentation generate and retrieve quote. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.
 
 ## Generate a quote
 ```shell
 curl --location --request POST '/v1/quote' \
 --header 'Authorization: asdfghjkl...' \
+--header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "xErFgC1648745126",
-    "createdAt": "2020-07-10 15:00:00.000",
-    "updatedAt": "2020-07-10 17:00:00.000",
-    "status": "pending",
-    "insurerId": "BJDEWQ",
-    "partnerId": "2057",
     "userId": "wd4kZcAw1648147055",
-    "discount": 150.00,
-    "offerUrl": "insure.heykangaroo/com/offer/xErFgC1648745126",
-    "price": 1900,
-    "type": 0,
-    "period": 52,
-    "validFor": 60,
-    "elements": {
-        "rqUid": "agfwre2r23",
-        "dmpId": "fjkd93-d3",
-        "dmpHqxId": "b30-djfj3D"
-    }
+    "type": 0
 }'
 ```
 
@@ -37,25 +22,10 @@ url = URI("/v1/quote")
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
 request["Authorization"] = "asdfghjkl..."
+request["Content-Type"] = "application/json"
 request.body = JSON.dump({
-  "id": "xErFgC1648745126",
-  "createdAt": "2020-07-10 15:00:00.000",
-  "updatedAt": "2020-07-10 17:00:00.000",
-  "status": "pending",
-  "insurerId": "BJDEWQ",
-  "partnerId": "2057",
   "userId": "wd4kZcAw1648147055",
-  "discount": 150,
-  "offerUrl": "insure.heykangaroo/com/offer/xErFgC1648745126",
-  "price": 1900,
-  "type": 0,
-  "period": 52,
-  "validFor": 60,
-  "elements": {
-    "rqUid": "agfwre2r23",
-    "dmpId": "fjkd93-d3",
-    "dmpHqxId": "b30-djfj3D"
-  }
+  "type": 0
 })
 
 response = http.request(request)
@@ -65,24 +35,8 @@ puts response.read_body
 ```javascript
 var axios = require('axios');
 var data = JSON.stringify({
-  "id": "xErFgC1648745126",
-  "createdAt": "2020-07-10 15:00:00.000",
-  "updatedAt": "2020-07-10 17:00:00.000",
-  "status": "pending",
-  "insurerId": "BJDEWQ",
-  "partnerId": "2057",
   "userId": "wd4kZcAw1648147055",
-  "discount": 150,
-  "offerUrl": "insure.heykangaroo/com/offer/xErFgC1648745126",
-  "price": 1900,
-  "type": 0,
-  "period": 52,
-  "validFor": 60,
-  "elements": {
-    "rqUid": "agfwre2r23",
-    "dmpId": "fjkd93-d3",
-    "dmpHqxId": "b30-djfj3D"
-  }
+  "type": 0
 });
 
 var config = {
@@ -122,6 +76,13 @@ axios(config)
 
 ### Headers
 Authorization: asdfghjkl...
+
+### Output Schema of Request
+
+|Field|Meaning|Required|
+|-------|-------|-----|
+|userId| ID of the User| `true` |
+|type| Type of the User| `true` |
 
 ## Retrieve a quote
 ```shell
@@ -192,3 +153,9 @@ axios(config)
 
 ### Headers
 Authorization: asdfghjkl...
+
+
+### Output Schema of Request
+|Field|Meaning|Required|
+|-------|-------|-----|
+|quoteId| Quote id Generated | `true` |

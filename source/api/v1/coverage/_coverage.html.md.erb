@@ -1,5 +1,9 @@
 # Coverage
 
+This is the api documentation to check if user has coverage. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.
+
+## Check Customer Coverage
+
 ```shell
 curl --location --request GET '/v1/coverage?state=GA&zip=32345&country=US' \
 --header 'Authorization: asdfghjkl...' \
@@ -59,3 +63,11 @@ axios(config)
 <div class="h3"> Headers</div>
 
 Authorization: asdfghjkl...
+
+<div class="h3"> Output Schema of Request</div>
+
+|Field|Meaning|Required|
+|-------|-------| ----- |
+|State| State User is from| `true` |
+|Zip| Zipcode of the user| `true` |
+|Country| Country of the user| `true` |
