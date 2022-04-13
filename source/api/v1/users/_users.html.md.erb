@@ -1,10 +1,10 @@
 # User Information
   This is the api documentation for the user information. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.
 
-## Create an user
+## Create A User
 ```shell
 curl --location --request POST '/v1/user' \
---header 'Authorization: asdfghjkl...' \
+--header '' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "firstName": "Kanga",
@@ -41,7 +41,8 @@ url = URI("/v1/user")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
-request["Authorization"] = "asdfghjkl..."
+request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
 request.body = JSON.dump({
   "firstName": "Kanga",
   "lastName": "Roo",
@@ -104,7 +105,8 @@ var config = {
   method: 'post',
   url: '/v1/user',
   headers: {
-    'Authorization': 'asdfghjkl...',
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8',
     'Content-Type': 'application/json'
   },
   data : data
@@ -158,11 +160,11 @@ axios(config)
 ### Request Information
 |Category|Value|
 |-------|-------|
-|Http request| `POST`|
+|Http request| **`POST`**|
 |URL|/v1/user|
 
 ### Headers
-Authorization: asdfghjkl...
+Authorization: [JWT token](#authentication)
 
 ### Output Schema of Request
 <%= partial "./api/v1/includes/userOutput.html.md" %>
@@ -171,7 +173,7 @@ Authorization: asdfghjkl...
 
 ```shell
 curl --location --request GET '/v1/user/wd4kZcAw1648147055' \
---header 'Authorization: asdfghjkl...'
+--header ''
 ```
 ```ruby
 require "uri"
@@ -181,7 +183,8 @@ url = URI("/v1/user/wd4kZcAw1648147055")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
-request["Authorization"] = "asdfghjkl..."
+request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
 
 response = http.request(request)
 puts response.read_body
@@ -193,7 +196,8 @@ var config = {
   method: 'get',
   url: '/v1/user/wd4kZcAw1648147055',
   headers: {
-    'Authorization': 'asdfghjkl...'
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'
   }
 };
 
@@ -245,17 +249,17 @@ axios(config)
 ### Request Information
 |Category|Value|
 |-------|-------|
-|Http request| `GET`|
+|Http request| **`GET`**|
 |URL|/v1/user/:userId|
 
 ### Headers
-Authorization: asdfghjkl...
+Authorization: [JWT token](#authentication)
 
 
-## Update a user
+## Update A User
 ```shell
 curl --location --request PATCH '/v1/user/wd4kZcAw1648147055' \
---header 'Authorization: asdfghjkl...' \
+--header '' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "address": {
@@ -278,7 +282,8 @@ url = URI("/v1/user/wd4kZcAw1648147055")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Patch.new(url)
-request["Authorization"] = "asdfghjkl..."
+request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
 request["Content-Type"] = "application/json"
 request.body = JSON.dump({
   "address": {
@@ -312,7 +317,8 @@ var config = {
   method: 'patch',
   url: '/v1/user/wd4kZcAw1648147055',
   headers: {
-    'Authorization': 'asdfghjkl...',
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8',
     'Content-Type': 'application/json'
   },
   data : data
@@ -332,8 +338,8 @@ axios(config)
 ### Request Information
 |Category|Value|
 |-------|-------|
-|Http request| `PATCH`|
+|Http request| **`PATCH`**|
 |URL|/v1/user/:userId|
 
 ### Headers
-Authorization: asdfghjkl...
+Authorization: [JWT token](#authentication)

@@ -1,10 +1,10 @@
-# Get Quote
+# User Quote
 This is the api documentation generate and retrieve quote. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.
 
-## Generate a quote
+## Generate A Quote
 ```shell
 curl --location --request POST '/v1/quote' \
---header 'Authorization: asdfghjkl...' \
+--header '' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "userId": "wd4kZcAw1648147055",
@@ -21,7 +21,8 @@ url = URI("/v1/quote")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
-request["Authorization"] = "asdfghjkl..."
+request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
 request["Content-Type"] = "application/json"
 request.body = JSON.dump({
   "userId": "wd4kZcAw1648147055",
@@ -43,7 +44,8 @@ var config = {
   method: 'post',
   url: '/v1/quote',
   headers: {
-    'Authorization': 'asdfghjkl...'
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'
   },
   data : data
 };
@@ -71,11 +73,11 @@ axios(config)
 ### Request Information
 |Category|Value|
 |-------|-------|
-|Http request| `POST`|
+|Http request| **`POST`**|
 |URL|/v1/quote|
 
 ### Headers
-Authorization: asdfghjkl...
+Authorization: [JWT token](#authentication)
 
 ### Output Schema of Request
 
@@ -84,10 +86,10 @@ Authorization: asdfghjkl...
 |userId| ID of the User| `true` |
 |type| Type of the User| `true` |
 
-## Retrieve a quote
+## Retrieve A Quote
 ```shell
 curl --location --request GET '/v1/quote/xErFgC1648745126' \
---header 'Authorization: asdfghjkl...' \
+--header '' \
 --data-raw ''
 ```
 ```ruby
@@ -98,7 +100,8 @@ url = URI("/v1/quote/xErFgC1648745126")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
-request["Authorization"] = "asdfghjkl..."
+request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
 
 response = http.request(request)
 puts response.read_body
@@ -111,7 +114,8 @@ var config = {
   method: 'get',
   url: '/v1/quote/xErFgC1648745126',
   headers: {
-    'Authorization': 'asdfghjkl...'
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'
   },
   data : data
 };
@@ -148,11 +152,11 @@ axios(config)
 ### Request Information
 |Category|Value|
 |-------|-------|
-|Http request| `GET`|
+|Http request| **`GET`**|
 |URL|/v1/quote/:quoteId|
 
 ### Headers
-Authorization: asdfghjkl...
+Authorization: [JWT token](#authentication)
 
 
 ### Output Schema of Request
