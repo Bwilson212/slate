@@ -282,8 +282,8 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-f3901d1b.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-dae01d57.css" rel="stylesheet" media="print" />
+    <link href="stylesheets/screen-3e25b88f.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-babf8267.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-b12a2749.js"></script>
 
     <script>
@@ -294,7 +294,6 @@
   <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
-        NAV
         <img src="images/navbar-cad8cdcb.png" alt="" />
       </span>
     </a>
@@ -311,13 +310,13 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#coverage" class="toc-h1 toc-link" data-title="Coverage">Coverage</a>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#check-customer-coverage" class="toc-h2 toc-link" data-title="Check Customer Coverage">Check Customer Coverage</a>
+                    <a href="#request-information" class="toc-h2 toc-link" data-title="Request Information">Request Information</a>
                   </li>
               </ul>
           </li>
@@ -325,24 +324,24 @@
             <a href="#user-information" class="toc-h1 toc-link" data-title="User Information">User Information</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#create-an-user" class="toc-h2 toc-link" data-title="Create an user">Create an user</a>
+                    <a href="#create-a-user" class="toc-h2 toc-link" data-title="Create A User">Create A User</a>
                   </li>
                   <li>
                     <a href="#get-user-information" class="toc-h2 toc-link" data-title="Get User Information">Get User Information</a>
                   </li>
                   <li>
-                    <a href="#update-a-user" class="toc-h2 toc-link" data-title="Update a user">Update a user</a>
+                    <a href="#update-a-user" class="toc-h2 toc-link" data-title="Update A User">Update A User</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#get-quote" class="toc-h1 toc-link" data-title="Get Quote">Get Quote</a>
+            <a href="#user-quote" class="toc-h1 toc-link" data-title="User Quote">User Quote</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#generate-a-quote" class="toc-h2 toc-link" data-title="Generate a quote">Generate a quote</a>
+                    <a href="#generate-a-quote" class="toc-h2 toc-link" data-title="Generate A Quote">Generate A Quote</a>
                   </li>
                   <li>
-                    <a href="#retrieve-a-quote" class="toc-h2 toc-link" data-title="Retrieve a quote">Retrieve a quote</a>
+                    <a href="#retrieve-a-quote" class="toc-h2 toc-link" data-title="Retrieve A Quote">Retrieve A Quote</a>
                   </li>
               </ul>
           </li>
@@ -354,12 +353,34 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='authentication'>Authentication</h1><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'/v1/auth/verify'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: aldijfalskdjfa'</span> <span class="se">\</span>
+        <h1 id='introduction'>Introduction</h1>
+
+<p>Integer rhoncus, enim eget tristique eleifend, nibh sapien hendrerit velit, vel molestie nibh ligula laoreet odio.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce laoreet nisl id egestas sollicitudin. Etiam sit amet finibus orci. Fusce interdum facilisis convallis. Duis ornare orci eget nulla tempus mattis. Aenean luctus justo ut pretium ultricies. Maecenas in dignissim ex. </p>
+
+<p>In this guide, you’ll learn how to:</p>
+
+<ol>
+<li>Sed id lacus ac libero gravida maximus.</li>
+<li>In vitae eros aliquet, sagittis est ac, commodo enim.</li>
+<li>Vivamus id purus a nunc dapibus faucibus.</li>
+<li>Maecenas condimentum arcu at quam hendrerit suscipit.</li>
+</ol>
+
+<h1 id='authentication'>Authentication</h1>
+
+<p>There is a property in the header named “authorization” which is a JWT token. The JWT token is encrypted with the API key which we provide.</p>
+
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'/v1/auth/verify'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">''</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "token": "jaosdijfasodfj"
-}'</span>
+    "partnerId": "2057",
+    "keyId": "Q9RQ3fa9JRnTf6Rsko",
+    "exp": 1516239022
+}
+'</span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"json"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
@@ -368,24 +389,30 @@
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"aldijfalskdjfa"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
-  <span class="s2">"token"</span><span class="p">:</span> <span class="s2">"jaosdijfasodfj"</span>
+  <span class="s2">"partnerId"</span><span class="p">:</span> <span class="s2">"2057"</span><span class="p">,</span>
+  <span class="s2">"keyId"</span><span class="p">:</span> <span class="s2">"Q9RQ3fa9JRnTf6Rsko"</span><span class="p">,</span>
+  <span class="s2">"exp"</span><span class="p">:</span> <span class="mi">1516239022</span>
 <span class="p">})</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-  <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">jaosdijfasodfj</span><span class="dl">"</span>
+  <span class="dl">"</span><span class="s2">partnerId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2057</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">keyId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Q9RQ3fa9JRnTf6Rsko</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">exp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1516239022</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">post</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/v1/auth/verify</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">aldijfalskdjfa</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</span><span class="dl">'</span><span class="p">,</span> 
     <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
   <span class="p">},</span>
   <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
@@ -398,18 +425,17 @@
 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
+
 </code></pre></div>
+
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
+
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Kangaroo uses API keys to allow access to the API.</p>
-
-<p>Kangaroo expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
+</span></code></pre></div><h3 id='request-information'>Request Information</h3>
 <table><thead>
 <tr>
 <th>Category</th>
@@ -418,7 +444,7 @@
 </thead><tbody>
 <tr>
 <td>Http request</td>
-<td><code>POST</code></td>
+<td><strong><code>POST</code></strong></td>
 </tr>
 <tr>
 <td>URL</td>
@@ -426,79 +452,9 @@
 </tr>
 </tbody></table>
 
-<p><code>Authorization: asdfghjkl...</code></p>
-
-<aside class="notice">
-You must replace <code>asdfghjkl...</code> with your personal API key.
-</aside>
-
-<h1 id='coverage'>Coverage</h1>
-
-<p>This is the api documentation to check if user has coverage. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.</p>
-
-<p><h2 id='check-customer-coverage'>Check Customer Coverage</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">&#39;/v1/coverage?state=GA&amp;zip=32345&amp;country=US&#39;</span> <span class="se">&lt;/span&gt;
-<span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span> <span class="se">&lt;/span&gt;
-<span class="nt">--data-raw</span> <span class="s1">&#39;&#39;</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
-<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
-
-<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;/v1/coverage?state=GA&amp;zip=32345&amp;country=US&quot;</span><span class="p">)</span></p>
-
-<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span></p>
-
-<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">&#39;</span><span class="s1">axios</span><span class="dl">&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="dl">&#39;&#39;</span><span class="p">;</span></p>
-
-<p><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">get</span><span class="dl">&#39;</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/coverage?state=GA&amp;zip=32345&amp;country=US</span><span class="dl">&#39;</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">asdfghjkl...</span><span class="dl">&#39;</span>
-  <span class="p">},</span>
-  <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
-<span class="p">};</span></p>
-
-<p><span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-
-<p></blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">&quot;message&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<div class="h3"> Request Information</div></p></p>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Http request</td>
-<td><code>GET</code></td>
-</tr>
-<tr>
-<td>URL</td>
-<td>/v1/quote?state=state&amp;zip=zip&amp;country=country</td>
-</tr>
-</tbody></table>
-
 <div class="h3"> Headers</div>
 
-<p>Authorization: asdfghjkl...</p>
+<p>Authorization: <a href="#authentication">JWT token</a></p>
 
 <div class="h3"> Output Schema of Request</div>
 
@@ -510,28 +466,33 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>State</td>
-<td>State User is from</td>
+<td>partnerId</td>
+<td>Quote id Generated</td>
 <td><code>true</code></td>
 </tr>
 <tr>
-<td>Zip</td>
-<td>Zipcode of the user</td>
+<td>keyId</td>
+<td>Quote id Generated</td>
 <td><code>true</code></td>
 </tr>
 <tr>
-<td>Country</td>
-<td>Country of the user</td>
+<td>exp</td>
+<td>Quote id Generated</td>
 <td><code>true</code></td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+You must replace <code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</code> with your personal API key.
+</aside>
 
 <h1 id='user-information'>User Information</h1>
 
 <p>This is the api documentation for the user information. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.</p>
 
-<p><h2 id='create-an-user'>Create an user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">&#39;/v1/user&#39;</span> <span class="se">&lt;/span&gt;
-<span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span> <span class="se">&lt;/span&gt;
+<p><h2 id='create-a-user'>Create A User</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">&#39;/v1/user&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--header</span> <span class="s1">&#39;&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--header</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--data-raw</span> <span class="s1">&#39;{
     &quot;firstName&quot;: &quot;Kanga&quot;,
@@ -566,7 +527,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 
 <p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8&quot;</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
   <span class="s2">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;Kanga&quot;</span><span class="p">,</span>
   <span class="s2">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Roo&quot;</span><span class="p">,</span>
@@ -627,7 +589,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
   <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">post</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/user</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">asdfghjkl...</span><span class="dl">&#39;</span><span class="p">,</span>
+    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</span><span class="dl">&#39;</span><span class="p">,</span>
     <span class="dl">&#39;</span><span class="s1">Content-Type</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">application/json</span><span class="dl">&#39;</span>
   <span class="p">},</span>
   <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
@@ -684,7 +647,7 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </thead><tbody>
 <tr>
 <td>Http request</td>
-<td><code>POST</code></td>
+<td><strong><code>POST</code></strong></td>
 </tr>
 <tr>
 <td>URL</td>
@@ -692,7 +655,7 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tr>
 </tbody></table>
 <h3 id='headers'>Headers</h3>
-<p>Authorization: asdfghjkl...</p>
+<p>Authorization: <a href="#authentication">JWT token</a></p>
 <h3 id='output-schema-of-request'>Output Schema of Request</h3>
 <table><thead>
 <tr>
@@ -808,7 +771,7 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tr>
 </tbody></table>
 <h2 id='get-user-information'>Get User Information</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">&#39;/v1/user/wd4kZcAw1648147055&#39;</span> <span class="se">&lt;/span&gt;
-<span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span>
+<span class="nt">--header</span> <span class="s1">&#39;&#39;</span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
 <span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p></p>
 
@@ -816,7 +779,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 
 <p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span></p>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8&quot;</span></p>
 
 <p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
@@ -826,7 +790,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
   <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">get</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/user/wd4kZcAw1648147055</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">asdfghjkl...</span><span class="dl">&#39;</span>
+    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</span><span class="dl">&#39;</span>
   <span class="p">}</span>
 <span class="p">};</span></p>
 
@@ -881,7 +846,7 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </thead><tbody>
 <tr>
 <td>Http request</td>
-<td><code>GET</code></td>
+<td><strong><code>GET</code></strong></td>
 </tr>
 <tr>
 <td>URL</td>
@@ -889,9 +854,9 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tr>
 </tbody></table>
 <h3 id='headers-2'>Headers</h3>
-<p>Authorization: asdfghjkl...</p>
-<h2 id='update-a-user'>Update a user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PATCH <span class="s1">&#39;/v1/user/wd4kZcAw1648147055&#39;</span> <span class="se">&lt;/span&gt;
-<span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span> <span class="se">&lt;/span&gt;
+<p>Authorization: <a href="#authentication">JWT token</a></p>
+<h2 id='update-a-user'>Update A User</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PATCH <span class="s1">&#39;/v1/user/wd4kZcAw1648147055&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--header</span> <span class="s1">&#39;&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--header</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--data-raw</span> <span class="s1">&#39;{
     &quot;address&quot;: {
@@ -911,7 +876,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 
 <p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Patch</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8&quot;</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
   <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -942,7 +908,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
   <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">patch</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/user/wd4kZcAw1648147055</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">asdfghjkl...</span><span class="dl">&#39;</span><span class="p">,</span>
+    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</span><span class="dl">&#39;</span><span class="p">,</span>
     <span class="dl">&#39;</span><span class="s1">Content-Type</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">application/json</span><span class="dl">&#39;</span>
   <span class="p">},</span>
   <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
@@ -969,7 +936,7 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </thead><tbody>
 <tr>
 <td>Http request</td>
-<td><code>PATCH</code></td>
+<td><strong><code>PATCH</code></strong></td>
 </tr>
 <tr>
 <td>URL</td>
@@ -977,14 +944,14 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tr>
 </tbody></table>
 <h3 id='headers-3'>Headers</h3>
-<p>Authorization: asdfghjkl...</p></p></p>
+<p>Authorization: <a href="#authentication">JWT token</a></p></p></p>
 
-<h1 id='get-quote'>Get Quote</h1>
+<h1 id='user-quote'>User Quote</h1>
 
 <p>This is the api documentation generate and retrieve quote. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.</p>
 
-<p><h2 id='generate-a-quote'>Generate a quote</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">&#39;/v1/quote&#39;</span> <span class="se">&lt;/span&gt;
-<span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span> <span class="se">&lt;/span&gt;
+<p><h2 id='generate-a-quote'>Generate A Quote</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">&#39;/v1/quote&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--header</span> <span class="s1">&#39;&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--header</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--data-raw</span> <span class="s1">&#39;{
     &quot;userId&quot;: &quot;wd4kZcAw1648147055&quot;,
@@ -998,7 +965,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 
 <p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8&quot;</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
   <span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="s2">&quot;wd4kZcAw1648147055&quot;</span><span class="p">,</span>
@@ -1017,7 +985,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
   <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">post</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/quote</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">asdfghjkl...</span><span class="dl">&#39;</span>
+    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</span><span class="dl">&#39;</span>
   <span class="p">},</span>
   <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
 <span class="p">};</span></p>
@@ -1049,7 +1018,7 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </thead><tbody>
 <tr>
 <td>Http request</td>
-<td><code>POST</code></td>
+<td><strong><code>POST</code></strong></td>
 </tr>
 <tr>
 <td>URL</td>
@@ -1057,7 +1026,7 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tr>
 </tbody></table>
 <h3 id='headers'>Headers</h3>
-<p>Authorization: asdfghjkl...</p>
+<p>Authorization: <a href="#authentication">JWT token</a></p>
 <h3 id='output-schema-of-request'>Output Schema of Request</h3>
 <table><thead>
 <tr>
@@ -1077,8 +1046,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 <td><code>true</code></td>
 </tr>
 </tbody></table>
-<h2 id='retrieve-a-quote'>Retrieve a quote</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">&#39;/v1/quote/xErFgC1648745126&#39;</span> <span class="se">&lt;/span&gt;
-<span class="nt">--header</span> <span class="s1">&#39;Authorization: asdfghjkl...&#39;</span> <span class="se">&lt;/span&gt;
+<h2 id='retrieve-a-quote'>Retrieve A Quote</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">&#39;/v1/quote/xErFgC1648745126&#39;</span> <span class="se">&lt;/span&gt;
+<span class="nt">--header</span> <span class="s1">&#39;&#39;</span> <span class="se">&lt;/span&gt;
 <span class="nt">--data-raw</span> <span class="s1">&#39;&#39;</span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
 <span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p></p>
@@ -1087,7 +1056,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 
 <p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;asdfghjkl...&quot;</span></p>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8&quot;</span></p>
 
 <p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
@@ -1098,7 +1068,8 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
   <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">get</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">/v1/quote/xErFgC1648745126</span><span class="dl">&#39;</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">asdfghjkl...</span><span class="dl">&#39;</span>
+    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</span><span class="dl">&#39;</span>
   <span class="p">},</span>
   <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
 <span class="p">};</span></p>
@@ -1138,7 +1109,7 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </thead><tbody>
 <tr>
 <td>Http request</td>
-<td><code>GET</code></td>
+<td><strong><code>GET</code></strong></td>
 </tr>
 <tr>
 <td>URL</td>
@@ -1146,7 +1117,7 @@ You must replace <code>asdfghjkl...</code> with your personal API key.
 </tr>
 </tbody></table>
 <h3 id='headers-2'>Headers</h3>
-<p>Authorization: asdfghjkl...</p>
+<p>Authorization: <a href="#authentication">JWT token</a></p>
 <h3 id='output-schema-of-request-2'>Output Schema of Request</h3>
 <table><thead>
 <tr>
