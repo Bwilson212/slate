@@ -1,13 +1,19 @@
 # Authentication
 
+There is a property in the header named “authorization” which is a JWT token. The JWT token is encrypted with the API key which we provide.
+
 ```shell
 curl --location --request POST '/v1/auth/verify' \
---header 'Authorization: aldijfalskdjfa' \
+--header '' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "token": "jaosdijfasodfj"
-}'
+    "partnerId": "2057",
+    "keyId": "Q9RQ3fa9JRnTf6Rsko",
+    "exp": 1516239022
+}
+'
 ```
+
 ```ruby
 require "uri"
 require "json"
@@ -17,10 +23,13 @@ url = URI("/v1/auth/verify")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
-request["Authorization"] = "aldijfalskdjfa"
+request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
 request["Content-Type"] = "application/json"
 request.body = JSON.dump({
-  "token": "jaosdijfasodfj"
+  "partnerId": "2057",
+  "keyId": "Q9RQ3fa9JRnTf6Rsko",
+  "exp": 1516239022
 })
 
 response = http.request(request)
@@ -30,14 +39,17 @@ puts response.read_body
 ```javascript
 var axios = require('axios');
 var data = JSON.stringify({
-  "token": "jaosdijfasodfj"
+  "partnerId": "2057",
+  "keyId": "Q9RQ3fa9JRnTf6Rsko",
+  "exp": 1516239022
 });
 
 var config = {
   method: 'post',
   url: '/v1/auth/verify',
-  headers: {
-    'Authorization': 'aldijfalskdjfa',
+  headers: { 
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8', 
     'Content-Type': 'application/json'
   },
   data : data
@@ -50,6 +62,7 @@ axios(config)
 .catch(function (error) {
   console.log(error);
 });
+
 ```
 
 > The above command returns JSON structured like this:
@@ -60,18 +73,26 @@ axios(config)
 }
 ```
 
-Kangaroo uses API keys to allow access to the API.
-
-Kangaroo expects for the API key to be included in all API requests to the server in a header that looks like the following:
+### Request Information
 
 |Category|Value|
 |-------|-------|
-|Http request| `POST`|
+|Http request| **`POST`**|
 |URL|/auth/verify|
 
-`Authorization: asdfghjkl...`
+
+<div class="h3"> Headers</div>
+Authorization: [JWT token](#authentication)
+
+<div class="h3"> Output Schema of Request</div>
+|Field|Meaning|Required|
+|-------|-------|-----|
+|partnerId| Quote id Generated | `true` |
+|keyId| Quote id Generated | `true` |
+|exp| Quote id Generated | `true` |
 
 <aside class="notice">
-You must replace <code>asdfghjkl...</code> with your personal API key.
+You must replace <code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</code> with your personal API key.
 </aside>
 

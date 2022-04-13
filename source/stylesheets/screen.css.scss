@@ -59,7 +59,6 @@ html, body {
   width: $nav-width;
   background-color: $nav-bg;
   font-size: 13px;
-  font-weight: bold;
 
   // language selector for mobile devices
   .lang-selector {
@@ -197,9 +196,14 @@ html, body {
   }
 }
 
+ul#toc {
+  margin-top: 20px;
+}
+
 .toc-link, .toc-footer li {
   padding: 0 $nav-padding 0 $nav-padding;
   display: block;
+  line-height: 40px;
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -233,7 +237,7 @@ html, body {
   opacity: 0.7;
   line-height: 16px;
   img {
-    height: 16px;
+    height: 24px;
     vertical-align: bottom;
   }
 
@@ -346,13 +350,11 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 25px;
+    font-size: 32px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
     background-color: #fdfdfd;
   }
 
@@ -363,7 +365,7 @@ html, body {
 
   h2 {
     @extend %header-font;
-    font-size: 19px;
+    font-size: 1.5em;
     margin-top: 4em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
@@ -381,7 +383,7 @@ html, body {
 
   h3, h4, h5, h6, .h3 {
     @extend %header-font;
-    font-size: 15px;
+    font-size: 19px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
   }
@@ -399,10 +401,14 @@ html, body {
   table {
     margin-bottom: 1em;
     overflow: auto;
-    width: 100%;
     max-width: 762px;
+    width: 45%;
+    font-size: 14px;
     display: table;
     margin-left: 28px;
+    tbody{
+      border-radius: 10px;
+    }
     th,td {
       text-align: left;
       vertical-align: top;
@@ -414,16 +420,23 @@ html, body {
 
     th {
       padding: 5px 10px;
-      border-bottom: 1px solid #ccc;
       vertical-align: bottom;
+      font-weight: inherit;
+      text-transform: uppercase;
     }
 
     td {
       padding: 10px;
     }
 
-    tr:last-child {
-      border-bottom: 1px solid #ccc;
+    tr:last-child{
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    tr:first-child{
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
     }
 
     tr:nth-child(odd)>td {
@@ -577,6 +590,10 @@ html, body {
     }
   }
 
+  table{
+    max-width: 358px!important;
+  }
+
   .page-wrapper {
     margin-left: 0;
   }
@@ -598,6 +615,10 @@ html, body {
 
   %left-col {
     margin-right: 0;
+  }
+  
+  table {
+    font-size: 14px;
   }
 
   .toc-wrapper .lang-selector {
