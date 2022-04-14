@@ -3,7 +3,7 @@
 The Kangaroo API uses the following error codes:
 
 
-Error Code | Meaning
+Error Code | Description
 ---------- | -------
 400 | Bad Request -- Your request is invalid.
 401 | Unauthorized -- Your API key is wrong.
