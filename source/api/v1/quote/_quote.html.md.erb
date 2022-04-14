@@ -4,7 +4,7 @@ This is the api documentation generate and retrieve quote. Lorem ipsum dolor sit
 ## Generate A Quote
 ```shell
 curl --location --request POST '/v1/quote' \
---header '' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "userId": "wd4kZcAw1648147055",
@@ -83,7 +83,7 @@ Authorization: [JWT token](#authentication)
 ## Retrieve A Quote
 ```shell
 curl --location --request GET '/v1/quote/xErFgC1648745126' \
---header '' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --data-raw ''
 ```
 ```ruby
