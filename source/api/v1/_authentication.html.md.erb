@@ -18,9 +18,7 @@ curl --location --request POST '/v1/auth/verify' \
 require "uri"
 require "json"
 require "net/http"
-
 url = URI("/v1/auth/verify")
-
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
@@ -31,7 +29,6 @@ request.body = JSON.dump({
   "keyId": "Q9RQ3fa9JRnTf6Rsko",
   "exp": 1516239022
 })
-
 response = http.request(request)
 puts response.read_body
 ```
@@ -73,23 +70,19 @@ axios(config)
 }
 ```
 
-### Request Information
-
-|Category|Value|
-|-------|-------|
-|Http request| **`POST`**|
-|URL|/auth/verify|
+<div class="h3"> HTTP Request:</div>
+**`POST`** `https://insure.heykangaroo.com/v1/auth/verify`
 
 
 <div class="h3"> Headers</div>
 Authorization: [JWT token](#authentication)
 
 <div class="h3"> Output Schema of Request</div>
-|Field|Meaning|Required|
-|-------|-------|-----|
-|partnerId| Quote id Generated | `true` |
-|keyId| Quote id Generated | `true` |
-|exp| Quote id Generated | `true` |
+|Field|Description|Required| Type | 
+|-------|-------|-----|-----|
+|partnerId| Quote id Generated | `Yes` | `String` |
+|keyId| Quote id Generated | `Yes` | `String` |
+|exp| Quote id Generated | `Yes` | `Timestamp` |
 
 <aside class="notice">
 You must replace <code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox

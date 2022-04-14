@@ -29,6 +29,7 @@ curl --location --request POST '/v1/user' \
         "smoke": "2",
         "motion": "1",
         "waterShutoff": "0",
+        "fire": "0"
     }
 }'
 ```
@@ -36,9 +37,7 @@ curl --location --request POST '/v1/user' \
 require "uri"
 require "json"
 require "net/http"
-
 url = URI("/v1/user")
-
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
@@ -65,14 +64,14 @@ request.body = JSON.dump({
     "theft": "6",
     "smoke": "2",
     "motion": "1",
-    "waterShutoff": "0"
+    "waterShutoff": "0",
+    "fire": "0"
   }
 })
-
 response = http.request(request)
 puts response.read_body
-
 ```
+
 ```javascript
 var axios = require('axios');
 var data = JSON.stringify({
@@ -119,9 +118,7 @@ axios(config)
 .catch(function (error) {
   console.log(error);
 });
-
 ```
-
 
 > The above command returns JSON structured like this:
 
@@ -153,15 +150,13 @@ axios(config)
         "smoke": "2",
         "motion": "1",
         "waterShutoff": "0",
+        "fire": "0"
     }
 }
 ```
 
-### Request Information
-|Category|Value|
-|-------|-------|
-|Http request| **`POST`**|
-|URL|/v1/user|
+### HTTP Request:
+**`POST`** `https://insure.heykangaroo.com/v1/user`
 
 ### Headers
 Authorization: [JWT token](#authentication)
@@ -175,20 +170,19 @@ Authorization: [JWT token](#authentication)
 curl --location --request GET '/v1/user/wd4kZcAw1648147055' \
 --header ''
 ```
+
 ```ruby
 require "uri"
 require "net/http"
-
 url = URI("/v1/user/wd4kZcAw1648147055")
-
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
-
 response = http.request(request)
 puts response.read_body
 ```
+
 ```javascript
 var axios = require('axios');
 
@@ -208,9 +202,7 @@ axios(config)
 .catch(function (error) {
   console.log(error);
 });
-
 ```
-
 
 > The above command returns JSON structured like this:
 
@@ -242,15 +234,13 @@ axios(config)
         "smoke": "2",
         "motion": "1",
         "waterShutoff": "0",
+        "fire": "0"
     }
 }
 ```
 
-### Request Information
-|Category|Value|
-|-------|-------|
-|Http request| **`GET`**|
-|URL|/v1/user/:userId|
+### HTTP Request:
+**`GET`** `https://insure.heykangaroo.com/v1/user/{quoteId}`
 
 ### Headers
 Authorization: [JWT token](#authentication)
@@ -277,9 +267,7 @@ curl --location --request PATCH '/v1/user/wd4kZcAw1648147055' \
 require "uri"
 require "json"
 require "net/http"
-
 url = URI("/v1/user/wd4kZcAw1648147055")
-
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Patch.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
@@ -295,7 +283,6 @@ request.body = JSON.dump({
     "address2": "8th Floor"
   }
 })
-
 response = http.request(request)
 puts response.read_body
 ```
@@ -321,7 +308,7 @@ var config = {
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8',
     'Content-Type': 'application/json'
   },
-  data : data
+  data: data
 };
 
 axios(config)
@@ -335,11 +322,8 @@ axios(config)
 
 > The above command returns `200`
 
-### Request Information
-|Category|Value|
-|-------|-------|
-|Http request| **`PATCH`**|
-|URL|/v1/user/:userId|
+### HTTP Request:
+**`PATCH`** `https://insure.heykangaroo.com/v1/user/{quoteId}`
 
 ### Headers
 Authorization: [JWT token](#authentication)
