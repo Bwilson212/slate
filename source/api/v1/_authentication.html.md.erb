@@ -4,7 +4,7 @@ There is a property in the header named “authorization” which is a JWT token
 
 ```shell
 curl --location --request POST '/v1/auth/verify' \
---header '' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "partnerId": "2057",

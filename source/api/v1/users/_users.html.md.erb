@@ -4,7 +4,7 @@
 ## Create A User
 ```shell
 curl --location --request POST '/v1/user' \
---header '' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "firstName": "Kanga",
@@ -249,7 +249,7 @@ Authorization: [JWT token](#authentication)
 ## Update A User
 ```shell
 curl --location --request PATCH '/v1/user/wd4kZcAw1648147055' \
---header '' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "address": {
