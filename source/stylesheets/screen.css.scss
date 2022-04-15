@@ -75,6 +75,8 @@ html, body {
     max-width: 100%;
     margin-left:1em;
     margin-bottom: $logo-margin;
+    margin: 15px 1em 0 0px;
+    width: 219px;
   }
 
   &>.search {
@@ -151,6 +153,7 @@ html, body {
     transition-timing-function: linear;
     transition-duration: 200ms;
     font-size: 16px;
+    letter-spacing: .35px;
   }
 
   // This is the currently selected ToC entry
@@ -196,6 +199,14 @@ html, body {
       text-decoration: none;
     }
   }
+}
+
+.token_example {
+  clear: initial !important;
+  margin-right: 50%;
+  padding: 0 28px;
+  width: 100%;
+  max-width: 300px;
 }
 
 ul#toc {
@@ -332,7 +343,7 @@ ul#toc {
     clear: both;
   }
 
-  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl, &>.h3 {
+  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl, &>.h3, .token_example {
     margin-right: $examples-width;
     padding: 0 $main-padding;
     box-sizing: border-box;
@@ -369,7 +380,7 @@ ul#toc {
     @extend %header-font;
     font-size: 1.5em;
     margin-top: 4em;
-    font-weight: normal;
+    color: #1E88E5;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
     padding-top: 1.2em;
@@ -387,7 +398,8 @@ ul#toc {
   h3, h4, h5, h6, .h3 {
     @extend %header-font;
     font-size: 20px;
-    font-weight: normal;
+    color: #1E88E5;
+    letter-spacing: .35px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
   }
@@ -416,6 +428,7 @@ ul#toc {
     th,td {
       text-align: left;
       vertical-align: top;
+      letter-spacing: 0.35px;
       line-height: 1.6;
       code {
         white-space: nowrap;
@@ -424,6 +437,7 @@ ul#toc {
 
     th {
       padding: 5px 10px;
+      letter-spacing: 1px;
       vertical-align: bottom;
       font-weight: inherit;
       text-transform: uppercase;
@@ -448,7 +462,7 @@ ul#toc {
     }
 
     tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
+      background-color: #fbfcfd;
     }
   }
 
@@ -462,6 +476,7 @@ ul#toc {
 
   p, li, dt, dd {
     line-height: 1.6;
+    letter-spacing: 0.35px;
     margin-top: 0;
   }
 
@@ -594,9 +609,18 @@ ul#toc {
     }
   }
 
+  .dark-box{
+    width: 37%!important;
+  }
+
+  .content pre, .content blockquote{
+    width: 37%!important;
+  }
+
   table{
     max-width: 358px!important;
   }
+
 
   .page-wrapper {
     margin-left: 0;
@@ -615,6 +639,10 @@ ul#toc {
 @media (max-width: $phone-width) {
   .dark-box {
     display: none;
+  }
+
+  .content pre, .content blockquote{
+    width: initial!important;
   }
 
   h1 {

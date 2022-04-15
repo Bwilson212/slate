@@ -59,7 +59,6 @@ axios(config)
 .catch(function (error) {
   console.log(error);
 });
-
 ```
 
 > The above command returns JSON structured like this:
@@ -71,11 +70,15 @@ axios(config)
 ```
 
 <div class="h3"> HTTP Request:</div>
-**`POST`** `https://insure.heykangaroo.com/v1/auth/verify`
+**`POST`** `/v1/auth/verify`
 
 
 <div class="h3"> Headers</div>
-Authorization: [JWT token](#authentication)
+Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8`
+
+<aside class="notice">
+You must replace example token with your JWT token.
+</aside>
 
 <div class="h3"> Output Schema of Request</div>
 |Field|Description|Required| Type | 
@@ -84,8 +87,5 @@ Authorization: [JWT token](#authentication)
 |keyId| Quote id Generated | `Yes` | `String` |
 |exp| Quote id Generated | `Yes` | `Timestamp` |
 
-<aside class="notice">
-You must replace <code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
-MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</code> with your personal API key.
-</aside>
+
 

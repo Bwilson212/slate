@@ -1,7 +1,8 @@
 # User Information
-  This is the api documentation for the user information. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.
+This is the api documentation for the user information. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.
 
 ## Create A User
+
 ```shell
 curl --location --request POST '/v1/user' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
@@ -33,11 +34,14 @@ curl --location --request POST '/v1/user' \
     }
 }'
 ```
+
 ```ruby
 require "uri"
 require "json"
 require "net/http"
+
 url = URI("/v1/user")
+
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
@@ -69,6 +73,7 @@ request.body = JSON.dump({
   }
 })
 response = http.request(request)
+
 puts response.read_body
 ```
 
@@ -155,31 +160,38 @@ axios(config)
 }
 ```
 
+This endpoint gets user information.
+
 ### HTTP Request:
-**`POST`** `https://insure.heykangaroo.com/v1/user`
+**`POST`** `/v1/user`
 
 ### Headers
-Authorization: [JWT token](#authentication)
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..
 
 ### Output Schema of Request
 <%= partial "./api/v1/includes/userOutput.html.md" %>
 
 ## Get User Information
+This endpoint gets a user.
 
 ```shell
-curl --location --request GET '/v1/user/wd4kZcAw1648147055' \
---header ''
+curl --location --request POST '/v1/user/wd4kZcAw1648147055' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
+--data-raw ''
 ```
 
 ```ruby
 require "uri"
 require "net/http"
+
 url = URI("/v1/user/wd4kZcAw1648147055")
+
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
 response = http.request(request)
+
 puts response.read_body
 ```
 
@@ -240,13 +252,15 @@ axios(config)
 ```
 
 ### HTTP Request:
-**`GET`** `https://insure.heykangaroo.com/v1/user/{quoteId}`
+**`GET`** `/v1/user/{quoteId}`
 
 ### Headers
-Authorization: [JWT token](#authentication)
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..
 
 ## Update A User
+
+This endpoint updates a user.
+
 ```shell
 curl --location --request PATCH '/v1/user/wd4kZcAw1648147055' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
@@ -323,7 +337,7 @@ axios(config)
 > The above command returns `200`
 
 ### HTTP Request:
-**`PATCH`** `https://insure.heykangaroo.com/v1/user/{quoteId}`
+**`PATCH`** `/v1/user/{quoteId}`
 
 ### Headers
-Authorization: [JWT token](#authentication)
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..

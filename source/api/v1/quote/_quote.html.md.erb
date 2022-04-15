@@ -2,6 +2,8 @@
 This is the api documentation generate and retrieve quote. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.
 
 ## Generate A Quote
+This endpoint generates a user's quote
+
 ```shell
 curl --location --request POST '/v1/quote' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
@@ -16,7 +18,9 @@ curl --location --request POST '/v1/quote' \
 require "uri"
 require "json"
 require "net/http"
+
 url = URI("/v1/quote")
+
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
@@ -26,6 +30,7 @@ request.body = JSON.dump({
   "userId": "wd4kZcAw1648147055",
   "type": 0
 })
+
 response = http.request(request)
 puts response.read_body
 ```
@@ -68,10 +73,10 @@ axios(config)
 ```
 
 ### HTTP Request:
-**`POST`** `https://insure.heykangaroo.com/v1/quote`
+**`POST`** `/v1/quote`
 
 ### Headers
-Authorization: [JWT token](#authentication)
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..
 
 ### Output Schema of Request
 
@@ -81,6 +86,8 @@ Authorization: [JWT token](#authentication)
 |type| Type of the User| `Yes` | `Integer` |
 
 ## Retrieve A Quote
+This endpoint Retrieve a user's quote
+
 ```shell
 curl --location --request GET '/v1/quote/xErFgC1648745126' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
@@ -89,11 +96,14 @@ curl --location --request GET '/v1/quote/xErFgC1648745126' \
 ```ruby
 require "uri"
 require "net/http"
+
 url = URI("/v1/quote/xErFgC1648745126")
+
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
+
 response = http.request(request)
 puts response.read_body
 ```
@@ -141,10 +151,10 @@ axios(config)
 ```
 
 ### HTTP Request:
-**`GET`** `https://insure.heykangaroo.com/v1/quote/{quoteId}`
+**`GET`** `/v1/quote/{quoteId}`
 
 ### Headers
-Authorization: [JWT token](#authentication)
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..
 
 
 ### Output Schema of Request
