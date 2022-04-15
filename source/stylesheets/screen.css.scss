@@ -609,9 +609,18 @@ ul#toc {
     }
   }
 
+  .dark-box{
+    width: 37%!important;
+  }
+
+  .content pre, .content blockquote{
+    width: 37%!important;
+  }
+
   table{
     max-width: 358px!important;
   }
+
 
   .page-wrapper {
     margin-left: 0;
@@ -630,6 +639,10 @@ ul#toc {
 @media (max-width: $phone-width) {
   .dark-box {
     display: none;
+  }
+
+  .content pre, .content blockquote{
+    width: initial!important;
   }
 
   h1 {
