@@ -1,0 +1,257 @@
+# Ingestion
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies ligula ac odio rhoncus, eu sollicitudin justo auctor. Nullam egestas vitae tellus eu volutpat. Praesent scelerisque maximus tellus at placerat. Praesent vitae orci sed nunc ultricies feugiat. Sed dapibus pharetra ligula sagittis lacinia. Nam ex risus, pharetra ac tellus posuere, lobortis consectetur mauris.
+
+## Ingest User
+Fusce sapien leo, porta nec est vehicula, gravida dapibus ex. Praesent nibh nunc, congue in cursus quis, condimentum non velit. Aliquam lectus libero, dignissim vulputate iaculis et, tristique quis est.
+
+```shell
+curl --location --request POST '/ingest/v1/user' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName": "Kanga",
+    "lastName": "Roo",
+    "address": {
+        "city": "Columbus",
+        "state": "OH",
+        "country": "US",
+        "zip": "43212",
+        "address1": "1920 Edgemont Rd",
+        "address2": "Apt 302"
+    },
+    "email": "joey@heykangaroo.com",
+    "phone": "+12623207190",
+    "dateOfBirth": "01/30/1987",
+    "typeOfHome": "apartment",
+    "isHomeOwner": true,
+    "proMonitoringEnabled": false,
+    "devices": {
+        "moisture": "3",
+        "theft": "0",
+        "smoke": "0",
+        "motion": "0",
+        "waterShutoff": "1",
+        "fire": "0"
+    },
+    "policyNumber": "NO123",
+    "insuranceName": "aa",
+    "premiumPaid": "Yearly",
+    "agentFirstName": "A",
+    "agentLastName": "B",
+    "agentEmail": "test@heykangaroo.com",
+    "agentPhone": "+1234567891",
+    "carOwner": "yes",
+    "carVin": "abc123",
+    "carCount": 2,
+    "homePurchaseDate": "01/30/1987",
+    "retired": "yes",
+    "specialOccupation": "Teacher",
+    "loyalty": 5,
+    "claimFree": 5,
+    "mortgageFreeAndLienFree": "yes",
+    "paidInFull": "yes",
+    "electronicFundTransfer": "yes",
+    "paperless": "yes",
+    "maritalStatus": "Married",
+    "educationLevel": "High School"
+}'
+```
+
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("/ingest/v1/user")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
+request.body = JSON.dump({
+    "firstName": "Kanga",
+    "lastName": "Roo",
+    "address": {
+        "city": "Columbus",
+        "state": "OH",
+        "country": "US",
+        "zip": "43212",
+        "address1": "1920 Edgemont Rd",
+        "address2": "Apt 302"
+    },
+    "email": "joey@heykangaroo.com",
+    "phone": "+12623207190",
+    "dateOfBirth": "01/30/1987",
+    "typeOfHome": "apartment",
+    "isHomeOwner": true,
+    "proMonitoringEnabled": false,
+    "devices": {
+        "moisture": "3",
+        "theft": "0",
+        "smoke": "0",
+        "motion": "0",
+        "waterShutoff": "1",
+        "fire": "0"
+    },
+    "policyNumber": "NO123",
+    "insuranceName": "aa",
+    "premiumPaid": "Yearly",
+    "agentFirstName": "A",
+    "agentLastName": "B",
+    "agentEmail": "test@heykangaroo.com",
+    "agentPhone": "+1234567891",
+    "carOwner": "yes",
+    "carVin": "abc123",
+    "carCount": 2,
+    "homePurchaseDate": "01/30/1987",
+    "retired": "yes",
+    "specialOccupation": "Teacher",
+    "loyalty": 5,
+    "claimFree": 5,
+    "mortgageFreeAndLienFree": "yes",
+    "paidInFull": "yes",
+    "electronicFundTransfer": "yes",
+    "paperless": "yes",
+    "maritalStatus": "Married",
+    "educationLevel": "High School"
+})
+response = http.request(request)
+
+puts response.read_body
+```
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+    "firstName": "Kanga",
+    "lastName": "Roo",
+    "address": {
+        "city": "Columbus",
+        "state": "OH",
+        "country": "US",
+        "zip": "43212",
+        "address1": "1920 Edgemont Rd",
+        "address2": "Apt 302"
+    },
+    "email": "joey@heykangaroo.com",
+    "phone": "+12623207190",
+    "dateOfBirth": "01/30/1987",
+    "typeOfHome": "apartment",
+    "isHomeOwner": true,
+    "proMonitoringEnabled": false,
+    "devices": {
+        "moisture": "3",
+        "theft": "0",
+        "smoke": "0",
+        "motion": "0",
+        "waterShutoff": "1",
+        "fire": "0"
+    },
+    "policyNumber": "NO123",
+    "insuranceName": "aa",
+    "premiumPaid": "Yearly",
+    "agentFirstName": "A",
+    "agentLastName": "B",
+    "agentEmail": "test@heykangaroo.com",
+    "agentPhone": "+1234567891",
+    "carOwner": "yes",
+    "carVin": "abc123",
+    "carCount": 2,
+    "homePurchaseDate": "01/30/1987",
+    "retired": "yes",
+    "specialOccupation": "Teacher",
+    "loyalty": 5,
+    "claimFree": 5,
+    "mortgageFreeAndLienFree": "yes",
+    "paidInFull": "yes",
+    "electronicFundTransfer": "yes",
+    "paperless": "yes",
+    "maritalStatus": "Married",
+    "educationLevel": "High School"
+});
+
+var config = {
+  method: 'post',
+  url: '/ingest/v1/user',
+  headers: {
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8',
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "paidInFull": "yes",
+    "lastName": "Roo",
+    "homePurchaseDate": "01/30/1987",
+    "policyNumber": "NO123",
+    "carVin": "abc123",
+    "agentFirstName": "A",
+    "email": "joey@heykangaroo.com",
+    "firstName": "Kanga",
+    "electronicFundTransfer": "yes",
+    "dateOfBirth": "01/30/1987",
+    "id": "3DW4FKK31ge3m4433",
+    "paperless": "yes",
+    "retired": "yes",
+    "qualify": true,
+    "phone": "+12623207190",
+    "typeOfHome": "apartment",
+    "carCount": 2,
+    "partnerId": "1000",
+    "agentPhone": "+1234567891",
+    "devices": {
+        "smoke": "0",
+        "waterShutoff": "1",
+        "fire": "0",
+        "moisture": "3",
+        "motion": "0",
+        "theft": "0"
+    },
+    "agentLastName": "B",
+    "loyalty": 5,
+    "createdAt": "2022-09-29 11:55:07.000",
+    "specialOccupation": "Teacher",
+    "address": {
+        "city": "Columbus",
+        "state": "OH",
+        "country": "US",
+        "zip": "43212",
+        "address1": "1920 Edgemont Rd",
+        "address2": "Apt 302"
+    },
+    "claimFree": 5,
+    "premiumPaid": "Yearly",
+    "agentEmail": "test@heykangaroo.com",
+    "proMonitoringEnabled": null,
+    "carOwner": "yes",
+    "maritalStatus": "Married",
+    "updatedAt": "2022-09-29 11:55:07.000",
+    "educationLevel": "High School",
+    "isHomeOwner": true,
+    "mortgageFreeAndLienFree": "yes",
+    "insuranceName": "aa"
+}
+```
+
+### HTTP Request:
+**`POST`** `ingest/v1/user`
+
+### Headers
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+### Output Schema of Request
+<%= partial "./api/v1/includes/ingestOutput.html.md" %>
