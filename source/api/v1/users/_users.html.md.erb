@@ -1,10 +1,11 @@
 # User Information
-This is the api documentation for the user information. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.
+After generating a JWT, you may now start the first step in our quote process by creating a User in our system.  Most of the parameters are required.  By including the optional parameters, you can maximize the discount amount of the quote.
 
 ## Create A User
+Creates a unique user in our system tied to your account.  Address verification is strongly recommended to be handled in your application before submitting data to us.  Wrong or invalid addresses could result in failures for generating quotes.
 
 ```shell
-curl --location --request POST '/v1/user' \
+curl --location --request POST '/user/v1' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -40,7 +41,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("/v1/user")
+url = URI("/user/v1")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
@@ -101,13 +102,14 @@ var data = JSON.stringify({
     "theft": "6",
     "smoke": "2",
     "motion": "1",
-    "waterShutoff": "0"
+    "waterShutoff": "0",
+    "fire": "0"
   }
 });
 
 var config = {
   method: 'post',
-  url: '/v1/user',
+  url: '/user/v1',
   headers: {
     'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8',
@@ -160,22 +162,28 @@ axios(config)
 }
 ```
 
-This endpoint gets user information.
-
 ### HTTP Request:
-**`POST`** `/v1/user`
+**`POST`** `/user/v1`
 
 ### Headers
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ### Output Schema of Request
 <%= partial "./api/v1/includes/userOutput.html.md" %>
 
+<div class="h3"> Type of Home</div>
+||
+|----|
+|house|
+|apartment|
+|condo|
+|mobile home|
+
 ## Get User Information
-This endpoint gets a user.
+Retrieves details about the user in our system.  Supply the unique ID that was returned in the creation request to fetch the user's information.
 
 ```shell
-curl --location --request POST '/v1/user/wd4kZcAw1648147055' \
+curl --location --request POST '/user/v1/wd4kZcAw1648147055' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --data-raw ''
 ```
@@ -184,7 +192,7 @@ curl --location --request POST '/v1/user/wd4kZcAw1648147055' \
 require "uri"
 require "net/http"
 
-url = URI("/v1/user/wd4kZcAw1648147055")
+url = URI("/user/v1/wd4kZcAw1648147055")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
@@ -200,7 +208,7 @@ var axios = require('axios');
 
 var config = {
   method: 'get',
-  url: '/v1/user/wd4kZcAw1648147055',
+  url: '/user/v1/wd4kZcAw1648147055',
   headers: {
     'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'
@@ -252,17 +260,17 @@ axios(config)
 ```
 
 ### HTTP Request:
-**`GET`** `/v1/user/{quoteId}`
+**`GET`** `/user/v1/:id`
 
 ### Headers
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ## Update A User
 
-This endpoint updates a user.
+Updates the specific details by setting the values of the parameters passed.  Any parameters not provided will be left unchanged.
 
 ```shell
-curl --location --request PATCH '/v1/user/wd4kZcAw1648147055' \
+curl --location --request PATCH '/user/v1/wd4kZcAw1648147055' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -281,7 +289,7 @@ curl --location --request PATCH '/v1/user/wd4kZcAw1648147055' \
 require "uri"
 require "json"
 require "net/http"
-url = URI("/v1/user/wd4kZcAw1648147055")
+url = URI("/user/v1/wd4kZcAw1648147055")
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Patch.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
@@ -316,7 +324,7 @@ var data = JSON.stringify({
 
 var config = {
   method: 'patch',
-  url: '/v1/user/wd4kZcAw1648147055',
+  url: '/user/v1/wd4kZcAw1648147055',
   headers: {
     'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8',
@@ -337,7 +345,7 @@ axios(config)
 > The above command returns `200`
 
 ### HTTP Request:
-**`PATCH`** `/v1/user/{quoteId}`
+**`PATCH`** `/user/v1/:id`
 
 ### Headers
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...

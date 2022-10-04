@@ -69,6 +69,10 @@ html, body {
     }
   }
 
+  em {
+    font-size: 10px!important;
+  }
+
   // This is the logo at the top of the ToC
   .logo {
     display: block;
@@ -343,7 +347,18 @@ ul#toc {
     clear: both;
   }
 
-  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl, &>.h3, .token_example {
+  .subtitle{
+    padding: 5px 10px;
+    letter-spacing: 1px;
+    vertical-align: bottom;
+    font-weight: inherit;
+    text-transform: uppercase;
+    color: #363A3C;
+    clear: initial;
+    padding: 4px 28px 10px 28px!important;
+  }
+
+  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl, &>.h3, .subtitle, .token_example {
     margin-right: $examples-width;
     padding: 0 $main-padding;
     box-sizing: border-box;
@@ -380,7 +395,7 @@ ul#toc {
     @extend %header-font;
     font-size: 1.5em;
     margin-top: 4em;
-    color: #1E88E5;
+    color: #4C4C47;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
     padding-top: 1.2em;
@@ -401,6 +416,7 @@ ul#toc {
     color: #1E88E5;
     letter-spacing: .35px;
     margin-top: 2.5em;
+    font-weight: normal;
     margin-bottom: 0.8em;
   }
 
@@ -490,6 +506,7 @@ ul#toc {
     border-radius: 3px;
     @extend %break-words;
     font-size: 16px;
+    word-break: normal;
   }
 
   pre>code {
@@ -594,6 +611,14 @@ ul#toc {
   }
 }
 
+
+@media (min-width:$phone-width) and (max-width: 1280px) {
+  .content table{
+    display: inherit;
+    max-width: 453px!important;
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // RESPONSIVE DESIGN
 ////////////////////////////////////////////////////////////////////////////////
@@ -616,11 +641,6 @@ ul#toc {
   .content pre, .content blockquote{
     width: 37%!important;
   }
-
-  table{
-    max-width: 358px!important;
-  }
-
 
   .page-wrapper {
     margin-left: 0;

@@ -1,91 +1,36 @@
 # Authentication
 
-There is a property in the header named “authorization” which is a JWT token. The JWT token is encrypted with the API key which we provide.
+To authenticate with Dory’s API, you must generate a JWT token and then pass it in the `Authorization` header in your request .  You will be given a client secret to sign the JWT.  The format is as follows:
 
-```shell
-curl --location --request POST '/v1/auth/verify' \
---header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
---header 'Content-Type: application/json' \
---data-raw '{
+* `partnerId` is your unique identifier in our system
+* `keyId` is a key identifier associated to your account
+* `exp` is an epoch timestamp in seconds and must be valid for less than 2 hours
+
+
+<div class="h3"> Header:</div>
+<code>
+  {
+    "alg": "HS256",
+    "typ": "JWT"
+  }
+</code>
+
+<div class="h3"> Payload:</div>
+<code>
+  {
     "partnerId": "2057",
     "keyId": "Q9RQ3fa9JRnTf6Rsko",
     "exp": 1516239022
-}
-'
-```
+  }
+</code>
 
-```ruby
-require "uri"
-require "json"
-require "net/http"
-url = URI("/v1/auth/verify")
-http = Net::HTTP.new(url.host, url.port);
-request = Net::HTTP::Post.new(url)
-request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
-MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
-request["Content-Type"] = "application/json"
-request.body = JSON.dump({
-  "partnerId": "2057",
-  "keyId": "Q9RQ3fa9JRnTf6Rsko",
-  "exp": 1516239022
-})
-response = http.request(request)
-puts response.read_body
-```
+<div class="h3"> Signature:</div>
+HMACSHA256 signed with client secret 
 
-```javascript
-var axios = require('axios');
-var data = JSON.stringify({
-  "partnerId": "2057",
-  "keyId": "Q9RQ3fa9JRnTf6Rsko",
-  "exp": 1516239022
-});
-
-var config = {
-  method: 'post',
-  url: '/v1/auth/verify',
-  headers: { 
-    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
-MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8', 
-    'Content-Type': 'application/json'
-  },
-  data : data
-};
-
-axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-});
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message" : "success"
-}
-```
-
-<div class="h3"> HTTP Request:</div>
-**`POST`** `/v1/auth/verify`
-
-
-<div class="h3"> Headers</div>
-Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8`
+You now use this JWT on all requests with Dory API endpoints.
 
 <aside class="notice">
-You must replace example token with your JWT token.
+You must replace example token with your JWT token. 
 </aside>
-
-<div class="h3"> Output Schema of Request</div>
-|Field|Description|Required| Type | 
-|-------|-------|-----|-----|
-|partnerId| Quote id Generated | `Yes` | `String` |
-|keyId| Quote id Generated | `Yes` | `String` |
-|exp| Quote id Generated | `Yes` | `Timestamp` |
-
 
 

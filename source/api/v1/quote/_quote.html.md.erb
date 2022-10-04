@@ -1,11 +1,24 @@
-# User Quote
-This is the api documentation generate and retrieve quote. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis tincidunt odio, at aliquet lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque aliquet, metus sed porttitor interdum, ex magna sollicitudin nisl, gravida bibendum augue diam vel purus.
+# Quote
+After successfully creating a user, you may start the insurance quote process.  This is done by passing in a user ID and type of insurance quote to our quote endpoint.  Currently, we only provide home insurance quotes.  The response object will contain a status and quote ID. Our servers will then process the information and attempt to generate a quote for the user.  We will deliver a webhook payload containing the user and quote ID once the quote process has been completed.
 
 ## Generate A Quote
-This endpoint generates a user's quote
+Starts the insurance quote process.  Pass in the user ID and type of insurance.  Roo will generate an ID for the quote and return the ID and status of the quote.
+
+<div class="h3"> Insurance Type:</div>
+|||
+|----| ----|
+|0| home insurance|
+
+<div class="h3"> Status Types:</div>
+|| |
+|----| ----|
+|pending| Quote is in the process of being completed|
+|success| Quote process is finished and details can be fetched|
+|failure| Quote was not generated for the user|
+|expired| The quote is no longer valid and the process needs to be restarted|
 
 ```shell
-curl --location --request POST '/v1/quote' \
+curl --location --request POST '/quote/v1' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -19,7 +32,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("/v1/quote")
+url = URI("/quote/v1")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
@@ -44,7 +57,7 @@ var data = JSON.stringify({
 
 var config = {
   method: 'post',
-  url: '/v1/quote',
+  url: '/quote/v1',
   headers: {
     'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'
@@ -64,32 +77,35 @@ axios(config)
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "quoteId": "xErFgC1648745126",
-    "userId": "wd4kZcAw1648147055",
-    "status": "pending",
-    "createdAt": "2020-07-10 15:00:00.000"
-}
+[
+  {
+      "quoteId": "xErFgC1648745126",
+      "userId": "wd4kZcAw1648147055",
+      "status": "pending",
+      "createdAt": "2020-07-10 15:00:00.000"
+  }
+]
 ```
 
 ### HTTP Request:
-**`POST`** `/v1/quote`
+**`POST`** `/quote/v1`
 
 ### Headers
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ### Output Schema of Request
 
 |Field|Description|Required| Type |
 |-------|-------|-----|----|
 |userId| ID of the User| `Yes` | `String` |
-|type| Type of the User| `Yes` | `Integer` |
+|type| Type of the User| `No` | `Integer` |
 
-## Retrieve A Quote
-This endpoint Retrieve a user's quote
+
+## Get All Quotes
+Get list of all available quotes.
 
 ```shell
-curl --location --request GET '/v1/quote/xErFgC1648745126' \
+curl --location --request GET '/quotes/v1/QY7Ndf8Ng1ge50hvej' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --data-raw ''
 ```
@@ -97,7 +113,7 @@ curl --location --request GET '/v1/quote/xErFgC1648745126' \
 require "uri"
 require "net/http"
 
-url = URI("/v1/quote/xErFgC1648745126")
+url = URI("/quotes/v1/QY7Ndf8Ng1ge50hvej")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
@@ -113,7 +129,89 @@ var data = '';
 
 var config = {
   method: 'get',
-  url: '/v1/quote/xErFgC1648745126',
+  url: '/quotes/v1/QY7Ndf8Ng1ge50hvej',
+  headers: {
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "quotes": [
+        {
+            "id": "QY7Ndf8Ng1ge50hvej",
+            "createAt": "2022-09-29T16:16:28Z",
+            "type": 0,
+            "offerUrl": "https://staging-apiv1.getroo.dev/quote/v1/QY7Ndf8Ng1ge50hvej/offer",
+            "insurerName": "RooTest",
+            "userId": "u4J78bPC1ge50cvan",
+            "validFor": 1, // Days
+            "price": 12,
+            "period": 52, // Weeks
+            "discount": 5,
+            "status": "success"
+        }
+    ]
+}
+```
+
+### HTTP Request:
+**`GET`** `/quotes/v1/:userId`
+
+### Headers
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+
+### Output Schema of Request
+|Field|Description|Required| Type |
+|-------|-------|-----| ---- |
+|userId| User Id from create User  | `Yes` | `String` |
+
+
+
+## Get Quote Details
+Retrieve details about a quote.  Until the quote processing webhook is delivered, the only information about the quote that will be available will be the “status” property
+
+```shell
+curl --location --request GET '/quote/v1/xErFgC1648745126' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
+--data-raw ''
+```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("/quote/v1/xErFgC1648745126")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
+
+response = http.request(request)
+puts response.read_body
+```
+```javascript
+var axios = require('axios');
+var data = '';
+
+var config = {
+  method: 'get',
+  url: '/quote/v1/xErFgC1648745126',
   headers: {
     'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'
@@ -145,19 +243,19 @@ axios(config)
     "price": 1900,
     "status": "success",
     "type": 0,
-    "period": 52,
-    "validFor": 60,
+    "period": 52, // Weeks
+    "validFor": 60, // Days
 }
 ```
 
 ### HTTP Request:
-**`GET`** `/v1/quote/{quoteId}`
+**`GET`** `/quote/v1/:id`
 
 ### Headers
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 
 ### Output Schema of Request
 |Field|Description|Required| Type |
 |-------|-------|-----| ---- |
-|quoteId| Quote id Generated | `Yes` | `String` |
+|Id| Quote id Generated | `Yes` | `String` |

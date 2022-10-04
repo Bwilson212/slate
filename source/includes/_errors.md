@@ -1,11 +1,30 @@
 # Errors
 
-The Kangaroo API uses the following error codes:
+The Roo API uses the following error codes:
 
 
-Error Code | Description
----------- | -------
-400 | Bad Request -- Your request is invalid.
-401 | Unauthorized -- Your API key is wrong.
-404 | Not Found -- Driver ID not found.
-410 | Bad Request -- No State available.
+**400**
+
+- Failed to create quote
+- Invalid Parameter: You must provide a userId
+
+**401**
+
+- Authentication code is required
+- Invalid key
+- Authentication code must valid for less than 2 hours
+- The JWT has expired
+
+**402**
+
+- User’s address is not covered
+
+**404**
+
+- User does not exist
+- Address not found
+- Failed to create quote
+
+**405**
+
+- No offer available
