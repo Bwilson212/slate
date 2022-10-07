@@ -16,7 +16,7 @@ module Rouge
         palette base05: "#d0d0d0"
         palette base06: "#e0e0e0"
         palette base07: "#f5f5f5"
-        palette base08: "#ac4142"
+        palette base08: "#fff"
         palette base09: "#d28445"
         palette base0A: "#f4bf75"
         palette base0B: "#90a959"
@@ -47,7 +47,7 @@ module Rouge
   
         light!
   
-        style Error, :fg => :base00, :bg => :base08
+        style Error, :fg => :base00, :bg => :base09
         style Comment, :fg => :base03
   
         style Comment::Preproc,
@@ -57,7 +57,7 @@ module Rouge
               Punctuation, :fg => :base05
   
         style Generic::Inserted, :fg => :base0B
-        style Generic::Deleted, :fg => :base08
+        style Generic::Deleted, :fg => :base09
         style Generic::Heading, :fg => :base0D, :bg => :base00, :bold => true
   
         style Keyword, :fg => :base0E
@@ -95,7 +95,7 @@ module Rouge
           palette base05: "#93a1a1"
           palette base06: "#eee8d5"
           palette base07: "#fdf6e3"
-          palette base08: "#dc322f"
+          palette base08: "#fff"
           palette base09: "#cb4b16"
           palette base0A: "#b58900"
           palette base0B: "#859900"
@@ -118,7 +118,7 @@ module Rouge
           palette base05: "#f8f8f2"
           palette base06: "#f5f4f1"
           palette base07: "#f9f8f5"
-          palette base08: "#f92672"
+          palette base08: "#fff"
           palette base09: "#fd971f"
           palette base0A: "#f4bf75"
           palette base0B: "#a6e22e"
