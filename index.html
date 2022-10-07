@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <!--(abridgement) -->
-      <link href="images/favicon-b1611f29.ico" rel="icon" type="image/ico" />
+      <link href="images/favicon-4f4dee6a.ico" rel="icon" type="image/ico" />
     <!--(abridgement) -->
     <link rel="manifest" href="/site.webmanifest">
     <meta charset="utf-8">
@@ -15,6 +15,9 @@
     <title>API Reference</title>
 
     <style media="screen">
+      .hightlight .err {
+        background-color: none!important;
+      }
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
@@ -182,7 +185,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-569b5751.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-41418106.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-babf8267.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-b12a2749.js"></script>
 
@@ -247,10 +250,10 @@
             <a href="#webhooks" class="toc-h1 toc-link" data-title="Webhooks">Webhooks</a>
           </li>
           <li>
-            <a href="#ingestion" class="toc-h1 toc-link" data-title="Ingestion">Ingestion</a>
+            <a href="#data-dump" class="toc-h1 toc-link" data-title="Data Dump">Data Dump</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#ingest-user" class="toc-h2 toc-link" data-title="Ingest User">Ingest User</a>
+                    <a href="#data-dump-user" class="toc-h2 toc-link" data-title="Data Dump User">Data Dump User</a>
                   </li>
               </ul>
           </li>
@@ -1116,11 +1119,11 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 
-<h1 id='ingestion'>Ingestion</h1>
+<h1 id='data-dump'>Data Dump</h1>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies ligula ac odio rhoncus, eu sollicitudin justo auctor. Nullam egestas vitae tellus eu volutpat. Praesent scelerisque maximus tellus at placerat. Praesent vitae orci sed nunc ultricies feugiat. Sed dapibus pharetra ligula sagittis lacinia. Nam ex risus, pharetra ac tellus posuere, lobortis consectetur mauris.</p>
 
-<h2 id='ingest-user'>Ingest User</h2>
+<h2 id='data-dump-user'>Data Dump User</h2>
 
 <p>Fusce sapien leo, porta nec est vehicula, gravida dapibus ex. Praesent nibh nunc, congue in cursus quis, condimentum non velit. Aliquam lectus libero, dignissim vulputate iaculis et, tristique quis est.</p>
 
@@ -1307,68 +1310,64 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 
-<p><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">&quot;paidInFull&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;lastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Roo&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;homePurchaseDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01/30/1987&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;policyNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO123&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;carVin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc123&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;agentFirstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;joey@heykangaroo.com&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;firstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kanga&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;electronicFundTransfer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01/30/1987&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3DW4FKK31ge3m4433&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;paperless&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;retired&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;qualify&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+12623207190&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;typeOfHome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apartment&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;carCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;partnerId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1000&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;agentPhone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+1234567891&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">&quot;smoke&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;waterShutoff&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;fire&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;moisture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;motion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;theft&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"paidInFull"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"homePurchaseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/30/1987"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"policyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"carVin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agentFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joey@heykangaroo.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kanga"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"electronicFundTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/30/1987"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3DW4FKK31ge3m4433"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"paperless"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"retired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"qualify"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+12623207190"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"typeOfHome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apartment"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"carCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"partnerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agentPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1234567891"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"devices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"smoke"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"waterShutoff"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fire"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"moisture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"motion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"theft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">&quot;agentLastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;loyalty&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-09-29 11:55:07.000&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;specialOccupation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Teacher&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Columbus&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OH&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;US&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;43212&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;address1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1920 Edgemont Rd&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;address2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Apt 302&quot;</span><span class="w">
+    </span><span class="nl">"agentLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"loyalty"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-09-29 11:55:07.000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"specialOccupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teacher"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Columbus"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OH"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43212"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1920 Edgemont Rd"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt 302"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">&quot;claimFree&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;premiumPaid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yearly&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;agentEmail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test@heykangaroo.com&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;proMonitoringEnabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;carOwner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;maritalStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Married&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;updatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-09-29 11:55:07.000&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;educationLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;High School&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;isHomeOwner&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;mortgageFreeAndLienFree&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;insuranceName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aa&quot;</span><span class="w">
+    </span><span class="nl">"claimFree"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"premiumPaid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agentEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@heykangaroo.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"proMonitoringEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"carOwner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Married"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-09-29 11:55:07.000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"educationLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High School"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isHomeOwner"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mortgageFreeAndLienFree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"insuranceName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request:</h3>
 <p><strong><code>POST</code></strong> <code>ingest/v1/user</code></p>
-
 <h3 id='headers'>Headers</h3>
-
 <p>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</p>
-
 <h3 id='output-schema-of-request'>Output Schema of Request</h3>
-
-<p><table><thead>
+<table><thead>
 <tr>
 <th>Field</th>
 <th>Description</th>
@@ -1552,7 +1551,7 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 </tr>
 <tr>
 <td>carOwner</td>
-<td>Are you a car owner</td>
+<td>Are you a car owner (yes/no)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
@@ -1600,25 +1599,25 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 </tr>
 <tr>
 <td>mortgageFreeAndLienFree</td>
-<td>---</td>
+<td>(yes/no)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
 <tr>
 <td>paidInFull</td>
-<td>Current policy paid in full?</td>
+<td>Current policy paid in full? (yes/no)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
 <tr>
 <td>electronicFundTransfer</td>
-<td>---</td>
+<td>(yes/no)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
 <tr>
 <td>paperless</td>
-<td>Would you like paperless</td>
+<td>Would you like paperless (yes/no)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
@@ -1634,7 +1633,52 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
-</tbody></table></p></p>
+</tbody></table>
+
+<div class="h3"> premiumPaid</div>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Yearly</td>
+</tr>
+<tr>
+<td>Monthly</td>
+</tr>
+</tbody></table>
+
+<div class="h3"> Date Purchased Home</div>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>YYYY-MM-DD</td>
+</tr>
+</tbody></table>
+
+<div class="h3"> Special Occupation</div>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Teacher</td>
+</tr>
+<tr>
+<td>First Responder</td>
+</tr>
+<tr>
+<td>Active Military</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
 <p>The Roo API uses the following error codes:</p>
 
