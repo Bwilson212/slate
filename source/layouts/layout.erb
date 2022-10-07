@@ -48,6 +48,9 @@ under the License.
     <title><%= current_page.data.title || "API Documentation" %></title>
 
     <style media="screen">
+      .hightlight .err {
+        background-color: none!important;
+      }
       <%= Rouge::Themes::Base16.render(:scope => '.highlight') %>
     </style>
     <style media="print">

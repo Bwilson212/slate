@@ -703,6 +703,11 @@ ul#toc {
   color: #909090;
 }
 
+.highlight .err {
+  background: none!important;
+  color: white;
+}
+
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
