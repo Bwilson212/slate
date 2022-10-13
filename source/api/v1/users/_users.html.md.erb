@@ -9,8 +9,8 @@ curl --location --request POST '/user/v1' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -48,8 +48,8 @@ request = Net::HTTP::Post.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
 request.body = JSON.dump({
-  "firstName": "Kanga",
-  "lastName": "Roo",
+  "firstName": "meet",
+  "lastName": "dory",
   "address": {
     "city": "Columbus",
     "state": "OH",
@@ -81,8 +81,8 @@ puts response.read_body
 ```javascript
 var axios = require('axios');
 var data = JSON.stringify({
-  "firstName": "Kanga",
-  "lastName": "Roo",
+  "firstName": "meet",
+  "lastName": "dory",
   "address": {
     "city": "Columbus",
     "state": "OH",
@@ -135,8 +135,8 @@ axios(config)
     "createdAt": "2020-07-10 15:00:00.000",
     "updatedAt": "2020-07-10 15:00:00.000",
     "partnerId": "6042",
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -232,8 +232,8 @@ axios(config)
     "createdAt": "2020-07-10 15:00:00.000",
     "updatedAt": "2020-07-10 15:00:00.000",
     "partnerId": "6042",
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -265,8 +265,9 @@ axios(config)
 ### Headers
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
-## Update A User
 
+
+## Update A User
 Updates the specific details by setting the values of the parameters passed.  Any parameters not provided will be left unchanged.
 
 ```shell
@@ -358,8 +359,8 @@ curl --location --request POST '/ingest/v1/user' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -387,7 +388,7 @@ curl --location --request POST '/ingest/v1/user' \
     "premiumPaid": "Yearly",
     "agentFirstName": "A",
     "agentLastName": "B",
-    "agentEmail": "test@heykangaroo.com",
+    "agentEmail": "test@heymeetdory.com",
     "agentPhone": "+1234567891",
     "carOwner": "yes",
     "carVin": "abc123",
@@ -418,8 +419,8 @@ request = Net::HTTP::Post.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
 request.body = JSON.dump({
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -447,7 +448,7 @@ request.body = JSON.dump({
     "premiumPaid": "Yearly",
     "agentFirstName": "A",
     "agentLastName": "B",
-    "agentEmail": "test@heykangaroo.com",
+    "agentEmail": "test@heymeetdory.com",
     "agentPhone": "+1234567891",
     "carOwner": "yes",
     "carVin": "abc123",
@@ -472,8 +473,8 @@ puts response.read_body
 ```javascript
 var axios = require('axios');
 var data = JSON.stringify({
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -501,7 +502,7 @@ var data = JSON.stringify({
     "premiumPaid": "Yearly",
     "agentFirstName": "A",
     "agentLastName": "B",
-    "agentEmail": "test@heykangaroo.com",
+    "agentEmail": "test@heymeetdory.com",
     "agentPhone": "+1234567891",
     "carOwner": "yes",
     "carVin": "abc123",

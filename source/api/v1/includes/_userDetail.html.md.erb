@@ -1,0 +1,106 @@
+## Get Detailed User Information
+Our User object contains a large number of properties to help find and calculate the best insurance rates. To serve all this data in an optimal way, we have 2 dedicated APIs to get the user’s information. The previous endpoint returns the basic information about the user and keeps response payloads small. This expanded endpoint will return all the properties in its entirety in the response.
+
+```shell
+curl --location --request POST '/user/v1/wd4kZcAw1648147055/details' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
+--data-raw ''
+```
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("/user/v1/wd4kZcAw1648147055/details")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
+response = http.request(request)
+
+puts response.read_body
+```
+
+```javascript
+var axios = require('axios');
+
+var config = {
+  method: 'get',
+  url: '/user/v1/wd4kZcAw1648147055/details',
+  headers: {
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'
+  }
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "paidInFull": "yes",
+    "lastName": "dory",
+    "homePurchaseDate": "01/30/1987",
+    "policyNumber": "NO123",
+    "carVin": "abc123",
+    "agentFirstName": "A",
+    "email": "test@meetdory.com",
+    "firstName": "meet",
+    "electronicFundTransfer": "yes",
+    "dateOfBirth": "01/30/1987",
+    "id": "3DW4FKK31ge3m4433",
+    "paperless": "yes",
+    "retired": "yes",
+    "qualify": true,
+    "phone": "+12623207190",
+    "typeOfHome": "apartment",
+    "carCount": 2,
+    "partnerId": "1000",
+    "agentPhone": "+1234567891",
+    "devices": {
+        "smoke": "0",
+        "waterShutoff": "1",
+        "fire": "0",
+        "moisture": "3",
+        "motion": "0",
+        "theft": "0"
+    },
+    "agentLastName": "B",
+    "loyalty": 5,
+    "createdAt": "2022-09-29 11:55:07.000",
+    "specialOccupation": "Teacher",
+    "address": {
+        "city": "Columbus",
+        "state": "OH",
+        "country": "US",
+        "zip": "43212",
+        "address1": "1920 Edgemont Rd",
+        "address2": "Apt 302"
+    },
+    "claimFree": 5,
+    "premiumPaid": "Yearly",
+    "agentEmail": "test@heymeetdory.com",
+    "proMonitoringEnabled": null,
+    "carOwner": "yes",
+    "maritalStatus": "Married",
+    "updatedAt": "2022-09-29 11:55:07.000",
+    "educationLevel": "High School",
+    "isHomeOwner": true,
+    "mortgageFreeAndLienFree": "yes",
+    "insuranceName": "aa"
+}
+```
+
+### HTTP Request:
+**`POST`** `/user/v1/:id/details`
+
+### Headers
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
