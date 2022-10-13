@@ -279,7 +279,7 @@
 <div class="h3">High Level Necessary Steps for generating an quote:</div>
 
 <ol>
-<li>Generate a JWT access token in order to communicate with all Roo APIs</li>
+<li>Generate a JWT access token in order to communicate with all Dory APIs</li>
 <li>Create a user by sending a POST request to our <code>/user/v1</code> endpoint</li>
 <li>Start the quote generation process by sending a POST request to <code>/quote/v1</code> with user ID and type of insurance quote you want to receive</li>
 <li>Listen for webhook to be delivered containing the quote ID and it’s status</li>
@@ -337,8 +337,8 @@ You must replace example token with your JWT token.
 <span class="nt">--header</span> <span class="s1">'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -373,8 +373,8 @@ You must replace example token with your JWT token.
 <span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
-  <span class="s2">"firstName"</span><span class="p">:</span> <span class="s2">"Kanga"</span><span class="p">,</span>
-  <span class="s2">"lastName"</span><span class="p">:</span> <span class="s2">"Roo"</span><span class="p">,</span>
+  <span class="s2">"firstName"</span><span class="p">:</span> <span class="s2">"meet"</span><span class="p">,</span>
+  <span class="s2">"lastName"</span><span class="p">:</span> <span class="s2">"dory"</span><span class="p">,</span>
   <span class="s2">"address"</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">"city"</span><span class="p">:</span> <span class="s2">"Columbus"</span><span class="p">,</span>
     <span class="s2">"state"</span><span class="p">:</span> <span class="s2">"OH"</span><span class="p">,</span>
@@ -403,8 +403,8 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"</sp
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-  <span class="dl">"</span><span class="s2">firstName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Kanga</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">lastName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Roo</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">firstName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">meet</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">lastName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">dory</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">address</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">city</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Columbus</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">state</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OH</span><span class="dl">"</span><span class="p">,</span>
@@ -458,8 +458,8 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
     </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-10 15:00:00.000"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-10 15:00:00.000"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"partnerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6042"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kanga"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dory"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Columbus"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OH"</span><span class="p">,</span><span class="w">
@@ -647,7 +647,7 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 <td>condo</td>
 </tr>
 <tr>
-<td>mobile</td>
+<td>mobileHome</td>
 </tr>
 </tbody></table>
 
@@ -699,8 +699,8 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
     </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-10 15:00:00.000"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-10 15:00:00.000"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"partnerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6042"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kanga"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dory"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Columbus"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OH"</span><span class="p">,</span><span class="w">
@@ -816,8 +816,8 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 <span class="nt">--header</span> <span class="s1">'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -845,7 +845,7 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
     "premiumPaid": "Yearly",
     "agentFirstName": "A",
     "agentLastName": "B",
-    "agentEmail": "test@heykangaroo.com",
+    "agentEmail": "test@heymeetdory.com",
     "agentPhone": "+1234567891",
     "carOwner": "yes",
     "carVin": "abc123",
@@ -873,8 +873,8 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 <span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
-    <span class="s2">"firstName"</span><span class="p">:</span> <span class="s2">"Kanga"</span><span class="p">,</span>
-    <span class="s2">"lastName"</span><span class="p">:</span> <span class="s2">"Roo"</span><span class="p">,</span>
+    <span class="s2">"firstName"</span><span class="p">:</span> <span class="s2">"meet"</span><span class="p">,</span>
+    <span class="s2">"lastName"</span><span class="p">:</span> <span class="s2">"dory"</span><span class="p">,</span>
     <span class="s2">"address"</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">"city"</span><span class="p">:</span> <span class="s2">"Columbus"</span><span class="p">,</span>
         <span class="s2">"state"</span><span class="p">:</span> <span class="s2">"OH"</span><span class="p">,</span>
@@ -902,7 +902,7 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"</sp
     <span class="s2">"premiumPaid"</span><span class="p">:</span> <span class="s2">"Yearly"</span><span class="p">,</span>
     <span class="s2">"agentFirstName"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">,</span>
     <span class="s2">"agentLastName"</span><span class="p">:</span> <span class="s2">"B"</span><span class="p">,</span>
-    <span class="s2">"agentEmail"</span><span class="p">:</span> <span class="s2">"test@heykangaroo.com"</span><span class="p">,</span>
+    <span class="s2">"agentEmail"</span><span class="p">:</span> <span class="s2">"test@heymeetdory.com"</span><span class="p">,</span>
     <span class="s2">"agentPhone"</span><span class="p">:</span> <span class="s2">"+1234567891"</span><span class="p">,</span>
     <span class="s2">"carOwner"</span><span class="p">:</span> <span class="s2">"yes"</span><span class="p">,</span>
     <span class="s2">"carVin"</span><span class="p">:</span> <span class="s2">"abc123"</span><span class="p">,</span>
@@ -924,8 +924,8 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"</sp
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">firstName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Kanga</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">lastName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Roo</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">firstName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">meet</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">lastName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">dory</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">address</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">city</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Columbus</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">state</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OH</span><span class="dl">"</span><span class="p">,</span>
@@ -953,7 +953,7 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"</sp
     <span class="dl">"</span><span class="s2">premiumPaid</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Yearly</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">agentFirstName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">agentLastName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">B</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">agentEmail</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">test@heykangaroo.com</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">agentEmail</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">test@heymeetdory.com</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">agentPhone</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">+1234567891</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">carOwner</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yes</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">carVin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abc123</span><span class="dl">"</span><span class="p">,</span>
@@ -1208,7 +1208,7 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 </tr>
 <tr>
 <td>carOwner</td>
-<td>Are you a car owner (yes/no)</td>
+<td>Are you a car owner (Yes/No)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
@@ -1232,7 +1232,7 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 </tr>
 <tr>
 <td>retired</td>
-<td>Are you retired (yes/no)</td>
+<td>Are you retired (Yes/No)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
@@ -1256,25 +1256,25 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 </tr>
 <tr>
 <td>mortgageFreeAndLienFree</td>
-<td>(yes/no)</td>
+<td>(Yes/No)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
 <tr>
 <td>paidInFull</td>
-<td>Current policy paid in full? (yes/no)</td>
+<td>Current policy paid in full? (Yes/No)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
 <tr>
 <td>electronicFundTransfer</td>
-<td>(yes/no)</td>
+<td>(Yes/No)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
 <tr>
 <td>paperless</td>
-<td>Would you like paperless (yes/no)</td>
+<td>Would you like paperless (Yes/No)</td>
 <td><code>No</code></td>
 <td><code>String</code></td>
 </tr>
@@ -1522,8 +1522,8 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QY7Ndf8Ng1ge50hvej"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"createAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-09-29T16:16:28Z"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"offerUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://staging-apiv1.getroo.dev/quote/v1/QY7Ndf8Ng1ge50hvej/offer"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"insurerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RooTest"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"offerUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://staging-apiv1.getdory.dev/quote/v1/QY7Ndf8Ng1ge50hvej/offer"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"insurerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"doryTest"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"u4J78bPC1ge50cvan"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"validFor"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Days</span><span class="w">
             </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -1603,7 +1603,7 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
     </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wd4kZcAw1648147055"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"insurerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"branch"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">150.00</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"offerUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"insure.heykangaroo/com/offer/xErFgC1648745126"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"offerUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"insure.heymeetdory/com/offer/xErFgC1648745126"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1900</span><span class="p">,</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
