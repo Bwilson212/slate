@@ -9,8 +9,8 @@ curl --location --request POST '/ingest/v1/user' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -38,7 +38,7 @@ curl --location --request POST '/ingest/v1/user' \
     "premiumPaid": "Yearly",
     "agentFirstName": "A",
     "agentLastName": "B",
-    "agentEmail": "test@heykangaroo.com",
+    "agentEmail": "test@heymeetdory.com",
     "agentPhone": "+1234567891",
     "carOwner": "yes",
     "carVin": "abc123",
@@ -69,8 +69,8 @@ request = Net::HTTP::Post.new(url)
 request["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
 MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"
 request.body = JSON.dump({
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -98,7 +98,7 @@ request.body = JSON.dump({
     "premiumPaid": "Yearly",
     "agentFirstName": "A",
     "agentLastName": "B",
-    "agentEmail": "test@heykangaroo.com",
+    "agentEmail": "test@heymeetdory.com",
     "agentPhone": "+1234567891",
     "carOwner": "yes",
     "carVin": "abc123",
@@ -123,8 +123,8 @@ puts response.read_body
 ```javascript
 var axios = require('axios');
 var data = JSON.stringify({
-    "firstName": "Kanga",
-    "lastName": "Roo",
+    "firstName": "meet",
+    "lastName": "dory",
     "address": {
         "city": "Columbus",
         "state": "OH",
@@ -152,7 +152,7 @@ var data = JSON.stringify({
     "premiumPaid": "Yearly",
     "agentFirstName": "A",
     "agentLastName": "B",
-    "agentEmail": "test@heykangaroo.com",
+    "agentEmail": "test@heymeetdory.com",
     "agentPhone": "+1234567891",
     "carOwner": "yes",
     "carVin": "abc123",
@@ -195,13 +195,13 @@ axios(config)
 ```json
 {
     "paidInFull": "yes",
-    "lastName": "Roo",
+    "lastName": "dory",
     "homePurchaseDate": "01/30/1987",
     "policyNumber": "NO123",
     "carVin": "abc123",
     "agentFirstName": "A",
     "email": "test@meetdory.com",
-    "firstName": "Kanga",
+    "firstName": "meet",
     "electronicFundTransfer": "yes",
     "dateOfBirth": "01/30/1987",
     "id": "3DW4FKK31ge3m4433",
@@ -235,7 +235,7 @@ axios(config)
     },
     "claimFree": 5,
     "premiumPaid": "Yearly",
-    "agentEmail": "test@heykangaroo.com",
+    "agentEmail": "test@heymeetdory.com",
     "proMonitoringEnabled": null,
     "carOwner": "yes",
     "maritalStatus": "Married",
