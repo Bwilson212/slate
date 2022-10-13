@@ -1,6 +1,5 @@
 # Errors
-
-The Roo API uses the following error codes:
+The Dory API uses the following error codes and messages.  Some error responses contain an internal error code.  If you receive one of these and are unclear about its accompanying message, reach out to your solutions architect.
 
 
 **400**
