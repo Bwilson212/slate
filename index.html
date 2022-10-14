@@ -228,6 +228,9 @@
                     <a href="#get-user-information" class="toc-h2 toc-link" data-title="Get User Information">Get User Information</a>
                   </li>
                   <li>
+                    <a href="#get-detailed-user-information" class="toc-h2 toc-link" data-title="Get Detailed User Information">Get Detailed User Information</a>
+                  </li>
+                  <li>
                     <a href="#update-a-user" class="toc-h2 toc-link" data-title="Update A User">Update A User</a>
                   </li>
                   <li>
@@ -728,6 +731,102 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 <p><strong><code>GET</code></strong> <code>/user/v1/:id</code></p>
 <h3 id='headers-2'>Headers</h3>
 <p>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</p>
+<h2 id='get-detailed-user-information'>Get Detailed User Information</h2>
+<p>Our User object contains a large number of properties to help find and calculate the best insurance rates. To serve all this data in an optimal way, we have 2 dedicated APIs to get the user’s information. The previous endpoint returns the basic information about the user and keeps response payloads small. This expanded endpoint will return all the properties in its entirety in the response.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'/user/v1/wd4kZcAw1648147055/details'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">''</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"/user/v1/wd4kZcAw1648147055/details"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2ox
+MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8"</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/user/v1/wd4kZcAw1648147055/details</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIyMDU3Iiwia2V5SWQiOiJqa2oxMzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"paidInFull"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dory"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"homePurchaseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/30/1987"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"policyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"carVin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agentFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@meetdory.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"electronicFundTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/30/1987"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wd4kZcAw1648147055"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"paperless"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"retired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"qualify"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+12623207190"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"typeOfHome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apartment"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"carCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"partnerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agentPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1234567891"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"devices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"smoke"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"waterShutoff"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fire"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"moisture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"motion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"theft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"agentLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"loyalty"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-09-29 11:55:07.000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"specialOccupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teacher"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Columbus"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OH"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43212"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1920 Edgemont Rd"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt 302"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"claimFree"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"premiumPaid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agentEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@heymeetdory.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"proMonitoringEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"carOwner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Married"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-09-29 11:55:07.000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"educationLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High School"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isHomeOwner"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mortgageFreeAndLienFree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"insuranceName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request:</h3>
+<p><strong><code>POST</code></strong> <code>/user/v1/:id/details</code></p>
+<h3 id='headers-3'>Headers</h3>
+<p>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</p>
 <h2 id='update-a-user'>Update A User</h2>
 <p>Updates the specific details by setting the values of the parameters passed.  Any parameters not provided will be left unchanged.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PATCH <span class="s1">'/user/v1/wd4kZcAw1648147055'</span> <span class="se">\</span>
@@ -800,11 +899,11 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 <p>The above command returns <code>200</code></p>
 </blockquote>
 
-<h3 id='http-request-3'>HTTP Request:</h3>
+<h3 id='http-request-4'>HTTP Request:</h3>
 
 <p><strong><code>PATCH</code></strong> <code>/user/v1/:id</code></p>
 
-<h3 id='headers-3'>Headers</h3>
+<h3 id='headers-4'>Headers</h3>
 
 <p>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</p>
 
@@ -989,9 +1088,9 @@ MzEyMyIsImV4cCI6MTUxNjIzOTAyMn0.JCCAbNW4O5RSoGrSbvpF78VtjJ5gxJTuob_69Bn4cW8</spa
 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre></div><h3 id='http-request-4'>HTTP Request:</h3>
+</code></pre></div><h3 id='http-request-5'>HTTP Request:</h3>
 <p><strong><code>POST</code></strong> <code>/ingest/v1/user</code></p>
-<h3 id='headers-4'>Headers</h3>
+<h3 id='headers-5'>Headers</h3>
 <p>Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</p>
 
 <table><thead>
